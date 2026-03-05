@@ -20,8 +20,8 @@ namespace VN.Runtime
         public event Action<CharacterData, EmotionType> OnCharacterOnScreenChanged;
         public event Action<EmotionType> OnProtagonistEmotionChanged;
 
-        /// <summary>Current node index, used when building a save snapshot.</summary>
-        public int CurrentIndex => _currentIndex;
+        /// <summary>Index of the last displayed node. Use this for saving.</summary>
+        public int LastDisplayedIndex => Mathf.Max(0, _currentIndex - 1);
 
         /// <summary>Loads a chapter and starts from the first node.</summary>
         public void LoadChapter(DialogueChapter chapter)
@@ -33,7 +33,7 @@ namespace VN.Runtime
         public void LoadChapterAtLine(DialogueChapter chapter, int startIndex)
         {
             _nodes = chapter.nodes;
-            _currentIndex = Mathf.Clamp(startIndex, 0, _nodes.Count);
+            _currentIndex = Mathf.Clamp(startIndex, 0, Mathf.Max(0, _nodes.Count - 1));
             _waitingForChoice = false;
 
             if (chapter.background != null)

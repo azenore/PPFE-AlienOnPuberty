@@ -3,6 +3,10 @@ using UnityEngine;
 using VN.Data;
 using VN.Save;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 namespace VN.Runtime
 {
     public class GameSaveController : MonoBehaviour
@@ -15,11 +19,37 @@ namespace VN.Runtime
         [Tooltip("Tous les DialogueChapter du jeu, dans l'ordre.")]
         [SerializeField] private List<DialogueChapter> allChapters;
 
+        private void OnEnable()
+        {
+#if UNITY_EDITOR
+            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+#endif
+        }
+
+        private void OnDisable()
+        {
+#if UNITY_EDITOR
+            EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+#endif
+        }
+
+#if UNITY_EDITOR
+        private void OnPlayModeStateChanged(PlayModeStateChange state)
+        {
+            if (state == PlayModeStateChange.ExitingPlayMode)
+                TrySave();
+        }
+#endif
+
         private void OnApplicationQuit()
         {
-            // Ne sauvegarde que si une partie est en cours
-            if (!string.IsNullOrEmpty(chapterManager.CurrentChapterName))
-                SaveGame();
+            TrySave();
+        }
+
+        private void TrySave()
+        {
+            if (string.IsNullOrEmpty(chapterManager.CurrentChapterName)) return;
+            SaveGame();
         }
 
         /// <summary>Builds a SaveData snapshot from current game state and writes it to disk.</summary>
@@ -35,7 +65,7 @@ namespace VN.Runtime
                 eyeColorG = protagonistData.eyeColor.g,
                 eyeColorB = protagonistData.eyeColor.b,
                 currentChapterName = chapterManager.CurrentChapterName,
-                currentLineIndex = dialogueEngine.CurrentIndex,
+                currentLineIndex = dialogueEngine.LastDisplayedIndex,
             };
 
             foreach (var (character, value) in protagonistData.GetAllAffinities())
@@ -48,20 +78,25 @@ namespace VN.Runtime
             }
 
             SaveSystem.Save(data);
+            Debug.Log($"[Save] Chapitre : {data.currentChapterName} | Ligne : {data.currentLineIndex}");
         }
 
         /// <summary>Loads SaveData from disk and restores full game state. Returns false if no save exists.</summary>
         public bool LoadGame()
         {
             SaveData data = SaveSystem.Load();
-            if (data == null) return false;
+            if (data == null)
+            {
+                Debug.LogWarning("[Save] Aucune sauvegarde trouvée.");
+                return false;
+            }
 
-            // Restore protagonist
+            Debug.Log($"[Save] Chargement — Chapitre : {data.currentChapterName} | Ligne : {data.currentLineIndex}");
+
             protagonistData.playerName = data.protagonistName;
             protagonistData.hairColor = new Color(data.hairColorR, data.hairColorG, data.hairColorB);
             protagonistData.eyeColor = new Color(data.eyeColorR, data.eyeColorG, data.eyeColorB);
 
-            // Restore affinities
             protagonistData.ResetAffinities();
             foreach (var entry in data.affinities)
             {
@@ -70,15 +105,25 @@ namespace VN.Runtime
                     protagonistData.SetAffinity(character, entry.value);
             }
 
-            // Restore chapter and line position
             DialogueChapter chapter = FindChapterByName(data.currentChapterName);
-            if (chapter != null)
-                chapterManager.LoadChapterAtLine(chapter, data.currentLineIndex);
-            else
-                Debug.LogWarning($"[GameSaveController] Chapitre introuvable : {data.currentChapterName}");
+            if (chapter == null)
+            {
+                Debug.LogError($"[Save] Chapitre introuvable : '{data.currentChapterName}'. Vérifie la liste allChapters dans l'Inspector.");
+                return false;
+            }
 
+            chapterManager.LoadChapterAtLine(chapter, data.currentLineIndex);
             return true;
         }
+
+        [ContextMenu("Debug — Forcer sauvegarde")]
+        private void ForceSave() => SaveGame();
+
+        [ContextMenu("Debug — Supprimer sauvegarde")]
+        private void DeleteSave() => SaveSystem.DeleteSave();
+
+        [ContextMenu("Debug — Afficher chemin")]
+        private void PrintPath() => Debug.Log(System.IO.Path.Combine(Application.persistentDataPath, "save.json"));
 
         private DialogueChapter FindChapterByName(string assetName)
             => allChapters.Find(c => c.name == assetName);

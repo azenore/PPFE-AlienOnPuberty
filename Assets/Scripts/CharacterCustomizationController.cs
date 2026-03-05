@@ -12,9 +12,14 @@ namespace VN.UI
         [Header("References")]
         [SerializeField] private ProtagonistData protagonist;
         [SerializeField] private ChapterManager chapterManager;
+        [SerializeField] private GameSaveController gameSaveController;
 
         [Header("Panels")]
         [SerializeField] private GameObject customizationPanel;
+
+        [Header("Menu Buttons")]
+        [SerializeField] private Button newGameButton;
+        [SerializeField] private Button continueButton;
 
         [Header("Name")]
         [SerializeField] private TMP_InputField nameInputField;
@@ -41,14 +46,17 @@ namespace VN.UI
             BuildSwatches(hairColorOptions, hairSwatchContainer, _hairSwatches, OnHairSelected);
             BuildSwatches(eyeColorOptions, eyeSwatchContainer, _eyeSwatches, OnEyeSelected);
 
-            // Sélectionne les premières options par défaut
             if (hairColorOptions.Count > 0) OnHairSelected(hairColorOptions[0]);
             if (eyeColorOptions.Count > 0) OnEyeSelected(eyeColorOptions[0]);
+
+            // Affiche le bouton Continuer uniquement si une sauvegarde existe
+            bool hasSave = SaveSystem.HasSave();
+            continueButton.gameObject.SetActive(hasSave);
 
             customizationPanel.SetActive(true);
         }
 
-        /// <summary>Appelé par le bouton Accept.</summary>
+        /// <summary>Appelé par le bouton Nouvelle Partie.</summary>
         public void Confirm()
         {
             string trimmedName = nameInputField.text.Trim();
@@ -57,8 +65,16 @@ namespace VN.UI
             if (_selectedHairColor != null) protagonist.hairColor = _selectedHairColor.color;
             if (_selectedEyeColor != null) protagonist.eyeColor = _selectedEyeColor.color;
 
+            SaveSystem.DeleteSave();
             customizationPanel.SetActive(false);
             chapterManager.StartGame();
+        }
+
+        /// <summary>Appelé par le bouton Continuer — charge la dernière sauvegarde.</summary>
+        public void Continue()
+        {
+            customizationPanel.SetActive(false);
+            gameSaveController.LoadGame();
         }
 
         private void BuildSwatches(

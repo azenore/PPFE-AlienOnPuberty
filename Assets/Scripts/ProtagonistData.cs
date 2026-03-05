@@ -29,6 +29,36 @@ namespace VN.Data
             return 0;
         }
 
+        /// <summary>Returns a snapshot of all affinity entries for serialization.</summary>
+        public IEnumerable<(CharacterData character, int value)> GetAllAffinities()
+        {
+            foreach (var entry in affinities)
+                yield return (entry.character, entry.value);
+        }
+
+        /// <summary>Sets affinity to an absolute value, clamped 0-100. Used when loading a save.</summary>
+        public void SetAffinity(CharacterData character, int value)
+        {
+            int clamped = Mathf.Clamp(value, 0, 100);
+            for (int i = 0; i < affinities.Count; i++)
+            {
+                if (affinities[i].character != character) continue;
+                var entry = affinities[i];
+                entry.value = clamped;
+                affinities[i] = entry;
+                OnAffinityChanged?.Invoke(character, clamped);
+                return;
+            }
+            affinities.Add(new AffinityEntry { character = character, value = clamped });
+            OnAffinityChanged?.Invoke(character, clamped);
+        }
+
+        /// <summary>Clears all affinity entries. Used before restoring from a save.</summary>
+        public void ResetAffinities()
+        {
+            affinities.Clear();
+        }
+
         /// <summary>Adds delta to affinity, clamped between 0 and 100.</summary>
         public void ModifyAffinity(CharacterData character, int delta)
         {

@@ -10,6 +10,9 @@ namespace VN.Runtime
 
         private DialogueChapter _currentChapter;
 
+        /// <summary>Asset name of the active chapter, used when building a save snapshot.</summary>
+        public string CurrentChapterName => _currentChapter != null ? _currentChapter.name : string.Empty;
+
         private void Start()
         {
             engine.OnChapterFinished += HandleChapterFinished;
@@ -26,7 +29,7 @@ namespace VN.Runtime
             LoadChapter(startingChapter);
         }
 
-        /// <summary>Loads a specific chapter into the engine.</summary>
+        /// <summary>Loads a specific chapter into the engine from its first node.</summary>
         public void LoadChapter(DialogueChapter chapter)
         {
             if (chapter == null)
@@ -37,6 +40,14 @@ namespace VN.Runtime
 
             _currentChapter = chapter;
             engine.LoadChapter(chapter);
+        }
+
+        /// <summary>Loads a chapter and resumes at a specific node index. Used when restoring a save.</summary>
+        public void LoadChapterAtLine(DialogueChapter chapter, int lineIndex)
+        {
+            if (chapter == null) return;
+            _currentChapter = chapter;
+            engine.LoadChapterAtLine(chapter, lineIndex);
         }
 
         private void HandleChapterFinished(DialogueChapter nextFromChoice)

@@ -9,6 +9,8 @@ namespace VN.Data
     {
         public string playerName = "Yuki";
         public EmotionType currentEmotion = EmotionType.Neutral;
+        public Color hairColor = Color.white;
+        public Color eyeColor = Color.white;
 
         [Tooltip("CharacterData contenant les sprites du protagoniste")]
         public CharacterData characterData;

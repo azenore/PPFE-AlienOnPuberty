@@ -13,12 +13,17 @@ namespace VN.Runtime
         private void Start()
         {
             engine.OnChapterFinished += HandleChapterFinished;
-            LoadChapter(startingChapter);
         }
 
         private void OnDestroy()
         {
             engine.OnChapterFinished -= HandleChapterFinished;
+        }
+
+        /// <summary>Appelé par CharacterCustomizationController après confirmation.</summary>
+        public void StartGame()
+        {
+            LoadChapter(startingChapter);
         }
 
         /// <summary>Loads a specific chapter into the engine.</summary>

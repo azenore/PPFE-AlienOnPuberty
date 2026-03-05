@@ -17,16 +17,19 @@ namespace VN.UI
         private void OnEnable()
         {
             engine.OnChoiceReady += ShowChoices;
-            engine.OnChapterFinished += _ => HideChoices();
-            engine.OnLineReady += _ => HideChoices();
+            engine.OnLineReady += HandleLineReady;
+            engine.OnChapterFinished += HandleChapterFinished;
         }
 
         private void OnDisable()
         {
             engine.OnChoiceReady -= ShowChoices;
-            engine.OnChapterFinished -= _ => HideChoices();
-            engine.OnLineReady -= _ => HideChoices();
+            engine.OnLineReady -= HandleLineReady;
+            engine.OnChapterFinished -= HandleChapterFinished;
         }
+
+        private void HandleLineReady(DialogueLine _) => HideChoices();
+        private void HandleChapterFinished(DialogueChapter _) => HideChoices();
 
         private void ShowChoices(List<DialogueChoice> choices)
         {

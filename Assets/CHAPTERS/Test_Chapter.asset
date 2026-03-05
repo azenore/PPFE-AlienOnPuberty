@@ -19,22 +19,69 @@ MonoBehaviour:
   nodes:
   - line:
       speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+      isProtagonist: 0
       speakerEmotion: 0
-      text: Hellloo hahah je te drague la
+      text: 'Hellloo hahah je te drague la [NAME]'
       voiceClip: {fileID: 0}
     isChoiceNode: 0
     choices: []
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 0
+    backgroundOverride: {fileID: 0}
   - line:
       speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+      isProtagonist: 0
       speakerEmotion: 0
-      text: Oui oui
+      text: '[NAME] Viens me faire un bissssouuus'
       voiceClip: {fileID: 0}
     isChoiceNode: 0
     choices: []
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 0
+    backgroundOverride: {fileID: 0}
   - line:
       speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+      isProtagonist: 1
       speakerEmotion: 0
-      text: Oui oui
+      text: Oula je fais quoi moi
       voiceClip: {fileID: 0}
     isChoiceNode: 0
-    choices: []
+    choices:
+    - label: OUIIII
+      affinityTarget: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+      affinityDelta: 10
+      nextChapter: {fileID: 0}
+    - label: NNOOOONN
+      affinityTarget: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+      affinityDelta: -10
+      nextChapter: {fileID: 0}
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 0
+    backgroundOverride: {fileID: 0}
+  - line:
+      speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+      isProtagonist: 0
+      speakerEmotion: 0
+      text: 
+      voiceClip: {fileID: 0}
+    isChoiceNode: 1
+    choices:
+    - label: OUIIII
+      affinityTarget: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+      affinityDelta: 10
+      nextChapter: {fileID: 11400000, guid: 8bae5f13b1eefa541951c7c05d212cc0, type: 2}
+    - label: NNOOOONN
+      affinityTarget: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+      affinityDelta: -10
+      nextChapter: {fileID: 11400000, guid: 000e365fd3d98f74c85718b9d04ea387, type: 2}
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 0
+    backgroundOverride: {fileID: 0}

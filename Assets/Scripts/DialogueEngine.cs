@@ -16,6 +16,9 @@ namespace VN.Runtime
         public event Action<DialogueLine> OnLineReady;
         public event Action<List<DialogueChoice>> OnChoiceReady;
         public event Action<DialogueChapter> OnChapterFinished;
+        public event Action<Sprite> OnBackgroundChanged;
+        public event Action<CharacterData, EmotionType> OnCharacterOnScreenChanged;
+        public event Action<EmotionType> OnProtagonistEmotionChanged;
 
         /// <summary>Loads a chapter and starts from the first node.</summary>
         public void LoadChapter(DialogueChapter chapter)
@@ -23,6 +26,10 @@ namespace VN.Runtime
             _nodes = chapter.nodes;
             _currentIndex = 0;
             _waitingForChoice = false;
+
+            if (chapter.background != null)
+                OnBackgroundChanged?.Invoke(chapter.background);
+
             Advance();
         }
 
@@ -39,6 +46,15 @@ namespace VN.Runtime
 
             DialogueNode node = _nodes[_currentIndex];
             _currentIndex++;
+
+            if (node.backgroundOverride != null)
+                OnBackgroundChanged?.Invoke(node.backgroundOverride);
+
+            if (node.characterOnScreen != null)
+                OnCharacterOnScreenChanged?.Invoke(node.characterOnScreen, node.characterOnScreenEmotion);
+
+            if (node.overrideProtagonistEmotion)
+                OnProtagonistEmotionChanged?.Invoke(node.protagonistEmotion);
 
             if (node.isChoiceNode)
             {

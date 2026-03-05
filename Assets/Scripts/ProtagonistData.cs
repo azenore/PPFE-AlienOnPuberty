@@ -10,6 +10,9 @@ namespace VN.Data
         public string playerName = "Yuki";
         public EmotionType currentEmotion = EmotionType.Neutral;
 
+        [Tooltip("CharacterData contenant les sprites du protagoniste")]
+        public CharacterData characterData;
+
         [SerializeField]
         private List<AffinityEntry> affinities = new();
 
@@ -38,7 +41,6 @@ namespace VN.Data
                 return;
             }
 
-            // Personnage pas encore dans la liste, on l'ajoute
             int newValue = Mathf.Clamp(delta, 0, 100);
             affinities.Add(new AffinityEntry { character = character, value = newValue });
             OnAffinityChanged?.Invoke(character, newValue);

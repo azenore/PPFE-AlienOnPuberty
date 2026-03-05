@@ -6,8 +6,11 @@ namespace VN.Data
     [Serializable]
     public class DialogueLine
     {
-        [Tooltip("Laisser vide pour le narrateur")]
+        [Tooltip("Laisser vide si isProtagonist est coché ou si c'est le narrateur")]
         public CharacterData speaker;
+
+        [Tooltip("Cocher si c'est le protagoniste qui parle")]
+        public bool isProtagonist;
 
         public EmotionType speakerEmotion = EmotionType.Neutral;
 
@@ -16,6 +19,8 @@ namespace VN.Data
 
         public AudioClip voiceClip;
 
-        public bool IsNarrator => speaker == null;
+        public bool IsNarrator => !isProtagonist && speaker == null;
+        public bool IsProtagonist => isProtagonist;
+        public bool IsCharacter => !isProtagonist && speaker != null;
     }
 }

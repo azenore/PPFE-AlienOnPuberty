@@ -1,4 +1,5 @@
 // Assets/Scripts/Save/SaveData.cs
+using Microsoft.Unity.VisualStudio.Editor;
 using System;
 using System.Collections.Generic;
 
@@ -13,7 +14,7 @@ namespace VN.Save
 
         public string currentChapterName;  // DialogueChapter.name
         public int currentLineIndex;
-
+        
         public List<AffinitySaveEntry> affinities = new();
     }
 

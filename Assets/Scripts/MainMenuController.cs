@@ -26,6 +26,7 @@ namespace VN.UI
         private void Start()
         {
             ShowMainMenu();
+            gameSaveController.LoadGame();
         }
 
         /// <summary>Shows the main menu and hides all other panels.</summary>
@@ -42,10 +43,18 @@ namespace VN.UI
         /// <summary>Called by NewGameButton OnClick.</summary>
         public void OnNewGame()
         {
-            mainMenuPanel.SetActive(false);
-            customizationPanel.SetActive(true);
-            customizationController.PrepareCustomization();
-        }
+            if (gameSaveController.HasSave() == true)
+            {
+
+            }
+            else
+            {
+                mainMenuPanel.SetActive(false);
+                customizationPanel.SetActive(true);
+                customizationController.PrepareCustomization();
+            }
+
+            }
 
         /// <summary>Called by ContinueButton OnClick.</summary>
         public void OnContinue()

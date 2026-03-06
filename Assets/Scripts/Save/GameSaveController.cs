@@ -82,6 +82,18 @@ namespace VN.Runtime
         }
 
         /// <summary>Loads SaveData from disk and restores full game state. Returns false if no save exists.</summary>
+        /// 
+        public bool HasSave()
+        {
+            SaveData data = SaveSystem.Load();
+            if (data == null)
+            {
+                Debug.LogWarning("[Save] Aucune sauvegarde trouvée.");
+                return false;
+            }
+            return true;
+        }
+
         public bool LoadGame()
         {
             SaveData data = SaveSystem.Load();

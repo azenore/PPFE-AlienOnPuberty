@@ -23,6 +23,9 @@ namespace VN.Runtime
         /// <summary>Index of the last displayed node. Use this for saving.</summary>
         public int LastDisplayedIndex => Mathf.Max(0, _currentIndex - 1);
 
+        /// <summary>Last character displayed on screen. Used to restore UI state after Continue.</summary>
+        public CharacterData CurrentCharacter { get; private set; }
+
         /// <summary>Loads a chapter and starts from the first node.</summary>
         public void LoadChapter(DialogueChapter chapter)
         {
@@ -60,7 +63,10 @@ namespace VN.Runtime
                 OnBackgroundChanged?.Invoke(node.backgroundOverride);
 
             if (node.characterOnScreen != null)
+            {
+                CurrentCharacter = node.characterOnScreen;
                 OnCharacterOnScreenChanged?.Invoke(node.characterOnScreen, node.characterOnScreenEmotion);
+            }
 
             if (node.overrideProtagonistEmotion)
                 OnProtagonistEmotionChanged?.Invoke(node.protagonistEmotion);

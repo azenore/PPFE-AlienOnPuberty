@@ -13,15 +13,25 @@ namespace VN.Data
         [SerializeField]
         private List<EmotionEntry> emotionSprites = new();
 
+        // Cache construit une seule fois pour éviter les boucles foreach à chaque ligne
+        private Dictionary<EmotionType, Sprite> _spriteCache;
+
+        private void OnEnable() => BuildCache();
+
+        private void BuildCache()
+        {
+            _spriteCache = new Dictionary<EmotionType, Sprite>(emotionSprites.Count);
+            foreach (var entry in emotionSprites)
+                _spriteCache.TryAdd(entry.emotion, entry.sprite);
+        }
+
         /// <summary>Returns the sprite matching the given emotion, falls back to Neutral.</summary>
         public Sprite GetSprite(EmotionType emotion)
         {
-            foreach (var entry in emotionSprites)
-                if (entry.emotion == emotion) return entry.sprite;
+            if (_spriteCache == null) BuildCache();
 
-            foreach (var entry in emotionSprites)
-                if (entry.emotion == EmotionType.Neutral) return entry.sprite;
-
+            if (_spriteCache.TryGetValue(emotion, out Sprite sprite)) return sprite;
+            if (_spriteCache.TryGetValue(EmotionType.Neutral, out Sprite neutral)) return neutral;
             return null;
         }
 
@@ -33,4 +43,3 @@ namespace VN.Data
         }
     }
 }
-

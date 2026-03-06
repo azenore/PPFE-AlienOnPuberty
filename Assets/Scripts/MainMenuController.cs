@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using VN.Data;
 using VN.Runtime;
 
 namespace VN.UI
@@ -11,6 +12,7 @@ namespace VN.UI
         [SerializeField] private GameObject customizationPanel;
         [SerializeField] private GameObject optionsPanel;
         [SerializeField] private GameObject gamePanel;
+        [SerializeField] private GameObject affinityBarPanel;
 
         [Header("Main Menu Buttons")]
         [SerializeField] private Button continueButton;
@@ -18,6 +20,8 @@ namespace VN.UI
         [Header("References")]
         [SerializeField] private GameSaveController gameSaveController;
         [SerializeField] private CharacterCustomizationController customizationController;
+        [SerializeField] private AffinityBarView affinityBarView;
+        [SerializeField] private ProtagonistData ptotagonist;
 
         private void Start()
         {
@@ -32,7 +36,6 @@ namespace VN.UI
             optionsPanel.SetActive(false);
             gamePanel.SetActive(false);
 
-            // Le bouton Continuer n'apparaît que si une sauvegarde existe
             continueButton.gameObject.SetActive(SaveSystem.HasSave());
         }
 
@@ -49,7 +52,11 @@ namespace VN.UI
         {
             mainMenuPanel.SetActive(false);
             gamePanel.SetActive(true);
+            affinityBarPanel.SetActive(true);
             gameSaveController.LoadGame();
+            
+            // Rafraîchissement explicite — aucune dépendance au timing des events
+            affinityBarView.ForceRefresh();
         }
 
         /// <summary>Called by OptionsButton OnClick.</summary>

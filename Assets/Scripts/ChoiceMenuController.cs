@@ -12,7 +12,8 @@ namespace VN.UI
         [SerializeField] private ChoiceButtonView choiceButtonPrefab;
         [SerializeField] private Transform buttonsContainer;
 
-        private readonly List<ChoiceButtonView> _activeButtons = new();
+        // Pool de boutons réutilisés — plus de Instantiate/Destroy à chaque choix
+        private readonly List<ChoiceButtonView> _pool = new();
 
         private void OnEnable()
         {
@@ -36,20 +37,24 @@ namespace VN.UI
             HideChoices();
             choiceMenu.SetActive(true);
 
-            foreach (var choice in choices)
+            // Instancie uniquement si le pool n'a pas assez de boutons
+            while (_pool.Count < choices.Count)
+                _pool.Add(Instantiate(choiceButtonPrefab, buttonsContainer));
+
+            for (int i = 0; i < _pool.Count; i++)
             {
-                var button = Instantiate(choiceButtonPrefab, buttonsContainer);
-                button.Setup(choice, engine);
-                _activeButtons.Add(button);
+                bool active = i < choices.Count;
+                _pool[i].gameObject.SetActive(active);
+                if (active)
+                    _pool[i].Setup(choices[i], engine);
             }
         }
 
         private void HideChoices()
         {
-            foreach (var button in _activeButtons)
-                Destroy(button.gameObject);
+            foreach (var button in _pool)
+                button.gameObject.SetActive(false);
 
-            _activeButtons.Clear();
             choiceMenu.SetActive(false);
         }
     }

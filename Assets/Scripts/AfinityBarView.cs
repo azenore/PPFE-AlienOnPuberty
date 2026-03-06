@@ -1,28 +1,63 @@
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VN.Data;
+using VN.Runtime;
 
 namespace VN.UI
 {
     public class AffinityBarView : MonoBehaviour
     {
+        [Header("References")]
         [SerializeField] private ProtagonistData protagonist;
-        [SerializeField] private CharacterData trackedCharacter;
-        [SerializeField] private Image fillImage; // Image en mode "Filled", Fill Method = Vertical
+        [SerializeField] private DialogueEngine engine;
 
-        private void OnEnable() => protagonist.OnAffinityChanged += HandleAffinityChanged;
-        private void OnDisable() => protagonist.OnAffinityChanged -= HandleAffinityChanged;
+        [Header("UI")]
+        [SerializeField] private GameObject barPanel;
+        [SerializeField] private Image fillImage;
+        [SerializeField] private TextMeshProUGUI characterNameText;
 
-        private void Start()
+        private CharacterData _currentCharacter;
+
+        private void OnEnable()
         {
-            // Initialise la barre au d�marrage
-            float initial = protagonist.GetAffinity(trackedCharacter) / 100f;
-            fillImage.fillAmount = initial;
+            engine.OnCharacterOnScreenChanged += HandleCharacterChanged;
+            protagonist.OnAffinityChanged += HandleAffinityChanged;
+        }
+
+        private void OnDisable()
+        {
+            engine.OnCharacterOnScreenChanged -= HandleCharacterChanged;
+            protagonist.OnAffinityChanged -= HandleAffinityChanged;
+        }
+
+        /// <summary>Appelé explicitement après LoadGame() pour forcer le rafraîchissement de la barre.</summary>
+        public void ForceRefresh()
+        {
+            if (engine.CurrentCharacter != null)
+                HandleCharacterChanged(engine.CurrentCharacter, EmotionType.Neutral);
+            else
+                barPanel.SetActive(false);
+        }
+
+        private void HandleCharacterChanged(CharacterData character, EmotionType _)
+        {
+            _currentCharacter = character;
+
+            if (_currentCharacter == null)
+            {
+                barPanel.SetActive(false);
+                return;
+            }
+
+            barPanel.SetActive(true);
+            characterNameText.text = character.characterName;
+            fillImage.fillAmount = protagonist.GetAffinity(character) / 100f;
         }
 
         private void HandleAffinityChanged(CharacterData character, int newValue)
         {
-            if (character != trackedCharacter) return;
+            if (character != _currentCharacter) return;
             fillImage.fillAmount = newValue / 100f;
         }
     }

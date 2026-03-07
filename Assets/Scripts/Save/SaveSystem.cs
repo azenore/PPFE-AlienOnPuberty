@@ -7,12 +7,19 @@ namespace VN.Runtime
     public static class SaveSystem
     {
         private const string SaveFileName = "save.json";
+        private const string SaveFolderName = "save";
 
-        private static string SavePath => Path.Combine(Application.persistentDataPath, SaveFileName);
+        // Racine du jeu (dossier de l'exe en build, racine du projet en Editor)
+        private static string SaveDirectory =>
+            Path.Combine(Path.GetDirectoryName(Application.dataPath), SaveFolderName);
+
+        private static string SavePath =>
+            Path.Combine(SaveDirectory, SaveFileName);
 
         /// <summary>Serializes and writes SaveData to disk.</summary>
         public static void Save(SaveData data)
         {
+            Directory.CreateDirectory(SaveDirectory);
             string json = JsonUtility.ToJson(data, prettyPrint: true);
             File.WriteAllText(SavePath, json);
             Debug.Log($"[SaveSystem] Sauvegardé dans {SavePath}");

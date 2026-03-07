@@ -1,0 +1,17 @@
+{
+    "protagonistName": "Caca",
+    "hairColorR": 1.0,
+    "hairColorG": 1.0,
+    "hairColorB": 1.0,
+    "eyeColorR": 1.0,
+    "eyeColorG": 1.0,
+    "eyeColorB": 1.0,
+    "currentChapterName": "TestNON",
+    "currentLineIndex": 0,
+    "affinities": [
+        {
+            "characterName": "CH_Romy",
+            "value": 0
+        }
+    ]
+}

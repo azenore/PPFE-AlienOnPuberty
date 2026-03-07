@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using VN.Data;
@@ -18,6 +19,9 @@ namespace VN.Runtime
 
         [Tooltip("Tous les DialogueChapter du jeu, dans l'ordre.")]
         [SerializeField] private List<DialogueChapter> allChapters;
+
+        /// <summary>Fired each time a save is successfully written to disk.</summary>
+        public event Action OnSaved;
 
         private void OnEnable()
         {
@@ -79,21 +83,14 @@ namespace VN.Runtime
 
             SaveSystem.Save(data);
             Debug.Log($"[Save] Chapitre : {data.currentChapterName} | Ligne : {data.currentLineIndex}");
+
+            OnSaved?.Invoke();
         }
+
+        /// <summary>Returns true if a save file exists on disk.</summary>
+        public bool HasSave() => SaveSystem.HasSave();
 
         /// <summary>Loads SaveData from disk and restores full game state. Returns false if no save exists.</summary>
-        /// 
-        public bool HasSave()
-        {
-            SaveData data = SaveSystem.Load();
-            if (data == null)
-            {
-                Debug.LogWarning("[Save] Aucune sauvegarde trouvée.");
-                return false;
-            }
-            return true;
-        }
-
         public bool LoadGame()
         {
             SaveData data = SaveSystem.Load();
@@ -135,7 +132,7 @@ namespace VN.Runtime
         private void DeleteSave() => SaveSystem.DeleteSave();
 
         [ContextMenu("Debug — Afficher chemin")]
-        private void PrintPath() => Debug.Log(System.IO.Path.Combine(Application.persistentDataPath, "save.json"));
+        private void PrintPath() => Debug.Log(SaveSystem.GetSavePath());
 
         private DialogueChapter FindChapterByName(string assetName)
             => allChapters.Find(c => c.name == assetName);

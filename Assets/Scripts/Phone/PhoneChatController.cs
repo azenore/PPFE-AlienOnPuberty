@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -54,7 +55,14 @@ namespace VN.UI
             bubble.Setup(message, protagonist.playerName);
             _bubbles.Add(bubble);
 
-            // Scroll vers le bas au prochain frame pour laisser le layout se recalculer
+            StartCoroutine(ScrollToBottom());
+        }
+
+        private IEnumerator ScrollToBottom()
+        {
+            // Attendre deux frames : un pour le layout, un pour l'animation
+            yield return null;
+            yield return null;
             Canvas.ForceUpdateCanvases();
             scrollRect.verticalNormalizedPosition = 0f;
         }
@@ -62,7 +70,6 @@ namespace VN.UI
         private void HandleConversationFinished(DialogueChapter next)
         {
             CloseChat();
-            // ChapterManager prend le relais via son event
         }
 
         private void HandlePhoneChapterFinished(PhoneChapter next)

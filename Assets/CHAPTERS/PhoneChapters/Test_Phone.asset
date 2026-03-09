@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b84f2b392d3fe4baa1a996e346da38, type: 3}
+  m_Name: Test_Phone
+  m_EditorClassIdentifier: 
+  participants:
+  - {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+  - {fileID: 11400000, guid: e540e76a904336f4c818ad37d6a70cdc, type: 2}
+  messages:
+  - sender: {fileID: 11400000, guid: e540e76a904336f4c818ad37d6a70cdc, type: 2}
+    text: "Hello je suis Isaac on est dans la m\xEAme class, c'est \xE7a [NAME] ?"
+  - sender: {fileID: 11400000, guid: e540e76a904336f4c818ad37d6a70cdc, type: 2}
+    text: 'hihi '
+  - sender: {fileID: 0}
+    text: Je te baise Isaac
+  defaultNextChapter: {fileID: 0}
+  defaultNextPhoneChapter: {fileID: 0}

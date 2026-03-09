@@ -10,10 +10,12 @@ namespace VN.Data
         public Sprite background;
         public AudioClip backgroundMusic;
 
-        [Tooltip("Chapitre suivant par défaut si aucun choix ne le définit")]
+        [Tooltip("Chapitre dialogue suivant par défaut si aucun choix ne le définit.")]
         public DialogueChapter defaultNextChapter;
+
+        [Tooltip("Si défini, ce chapitre téléphone s'active à la fin au lieu du chapitre dialogue.")]
+        public PhoneChapter nextPhoneChapter;
 
         public List<DialogueNode> nodes = new();
     }
 }
-

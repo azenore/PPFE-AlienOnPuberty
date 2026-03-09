@@ -102,7 +102,6 @@ namespace VN.UI
 
         private static float EaseOutCubic(float t) => 1f - Mathf.Pow(1f - t, 3f);
 
-        // Génère et cache un sprite rectangle arrondi blanc pour toutes les bulles
         private static Sprite GetRoundedSprite()
         {
             if (_roundedSprite != null) return _roundedSprite;
@@ -114,12 +113,8 @@ namespace VN.UI
             Color[] pixels = new Color[SpriteSize * SpriteSize];
 
             for (int y = 0; y < SpriteSize; y++)
-            {
                 for (int x = 0; x < SpriteSize; x++)
-                {
                     pixels[y * SpriteSize + x] = IsInsideRoundedRect(x, y) ? Color.white : Color.clear;
-                }
-            }
 
             tex.SetPixels(pixels);
             tex.Apply();
@@ -142,7 +137,6 @@ namespace VN.UI
             int r = CornerRadius;
             int s = SpriteSize;
 
-            // Coins : teste si le pixel est dans le cercle du coin
             if (x < r && y < r)
                 return Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), new Vector2(r, r)) <= r;
             if (x < r && y >= s - r)

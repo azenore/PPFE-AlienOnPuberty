@@ -16,6 +16,7 @@ MonoBehaviour:
   background: {fileID: 21300000, guid: 2119edd396212c7438d75853f537709b, type: 3}
   backgroundMusic: {fileID: 0}
   defaultNextChapter: {fileID: 0}
+  nextPhoneChapter: {fileID: 11400000, guid: 0621abbfe90313345b937a1496b2f9cf, type: 2}
   nodes:
   - line:
       speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}

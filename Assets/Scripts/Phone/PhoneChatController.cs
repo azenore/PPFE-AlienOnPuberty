@@ -9,6 +9,8 @@ namespace VN.UI
 {
     public class PhoneChatController : MonoBehaviour
     {
+        private const float BubbleAnimDuration = 0.18f;
+
         [Header("References")]
         [SerializeField] private PhoneEngine phoneEngine;
         [SerializeField] private ProtagonistData protagonist;
@@ -58,12 +60,16 @@ namespace VN.UI
             StartCoroutine(ScrollToBottom());
         }
 
+        // Attend la fin de l'animation scale de la bulle avant de scroller.
+        // Pendant l'anim, le scale Y est entre 0 et 1 ce qui fausse le calcul
+        // de hauteur du ContentSizeFitter. On force un rebuild une fois terminé.
         private IEnumerator ScrollToBottom()
         {
-            // Attendre deux frames : un pour le layout, un pour l'animation
+            yield return new WaitForSeconds(BubbleAnimDuration);
             yield return null;
-            yield return null;
+
             Canvas.ForceUpdateCanvases();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.content);
             scrollRect.verticalNormalizedPosition = 0f;
         }
 

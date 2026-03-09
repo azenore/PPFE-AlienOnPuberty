@@ -21,6 +21,15 @@ namespace VN.Data
         public event Action<CharacterData, int> OnAffinityChanged;
         public event Action<EmotionType> OnEmotionChanged;
 
+        /// <summary>Returns a runtime clone of this asset to avoid mutating the original ScriptableObject on disk.</summary>
+        public ProtagonistData CreateRuntimeCopy()
+        {
+            var copy = Instantiate(this);
+            copy.name = this.name;
+            copy.affinities = new List<AffinityEntry>(affinities);
+            return copy;
+        }
+
         /// <summary>Returns current affinity value for a character (0-100).</summary>
         public int GetAffinity(CharacterData character)
         {

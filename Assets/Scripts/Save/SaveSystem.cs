@@ -42,5 +42,8 @@ namespace VN.Runtime
             if (File.Exists(SavePath))
                 File.Delete(SavePath);
         }
+
+        /// <summary>Returns the full path to the save file.</summary>
+        public static string GetSavePath() => SavePath;
     }
 }

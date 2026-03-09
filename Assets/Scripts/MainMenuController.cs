@@ -42,8 +42,16 @@ namespace VN.UI
             customizationPanel.SetActive(false);
             optionsPanel.SetActive(false);
             gamePanel.SetActive(false);
+            affinityBarPanel.SetActive(false);
             confirmationPanel.SetActive(false);
             RefreshContinueButton();
+        }
+
+        /// <summary>Called by the Home button OnClick. Saves progression then returns to main menu.</summary>
+        public void OnHome()
+        {
+            gameSaveController.SaveGame();
+            ShowMainMenu();
         }
 
         /// <summary>Refreshes the continue button visibility based on save file existence.</summary>
@@ -84,10 +92,10 @@ namespace VN.UI
         /// <summary>Called by ContinueButton OnClick.</summary>
         public void OnContinue()
         {
-            gameSaveController.LoadGame();
             mainMenuPanel.SetActive(false);
             gamePanel.SetActive(true);
             affinityBarPanel.SetActive(true);
+            gameSaveController.LoadGame();
             affinityBarView.ForceRefresh();
         }
 

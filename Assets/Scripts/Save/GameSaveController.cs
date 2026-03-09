@@ -13,7 +13,7 @@ namespace VN.Runtime
     public class GameSaveController : MonoBehaviour
     {
         [Header("References")]
-        [SerializeField] private ProtagonistData protagonistData;
+        [SerializeField] private ProtagonistData protagonistDataAsset;
         [SerializeField] private ChapterManager chapterManager;
         [SerializeField] private DialogueEngine dialogueEngine;
 
@@ -22,6 +22,16 @@ namespace VN.Runtime
 
         /// <summary>Fired each time a save is successfully written to disk.</summary>
         public event Action OnSaved;
+
+        // Copie runtime — évite de polluer l'asset ScriptableObject en éditeur
+        public ProtagonistData ProtagonistData { get; private set; }
+
+        private Dictionary<string, CharacterData> _characterCache;
+
+        private void Awake()
+        {
+            ProtagonistData = protagonistDataAsset.CreateRuntimeCopy();
+        }
 
         private void OnEnable()
         {
@@ -45,10 +55,7 @@ namespace VN.Runtime
         }
 #endif
 
-        private void OnApplicationQuit()
-        {
-            TrySave();
-        }
+        private void OnApplicationQuit() => TrySave();
 
         private void TrySave()
         {
@@ -61,18 +68,19 @@ namespace VN.Runtime
         {
             SaveData data = new SaveData
             {
-                protagonistName = protagonistData.playerName,
-                hairColorR = protagonistData.hairColor.r,
-                hairColorG = protagonistData.hairColor.g,
-                hairColorB = protagonistData.hairColor.b,
-                eyeColorR = protagonistData.eyeColor.r,
-                eyeColorG = protagonistData.eyeColor.g,
-                eyeColorB = protagonistData.eyeColor.b,
+                protagonistName = ProtagonistData.playerName,
+                hairColorR = ProtagonistData.hairColor.r,
+                hairColorG = ProtagonistData.hairColor.g,
+                hairColorB = ProtagonistData.hairColor.b,
+                eyeColorR = ProtagonistData.eyeColor.r,
+                eyeColorG = ProtagonistData.eyeColor.g,
+                eyeColorB = ProtagonistData.eyeColor.b,
                 currentChapterName = chapterManager.CurrentChapterName,
                 currentLineIndex = dialogueEngine.LastDisplayedIndex,
+                lastCharacterOnScreenName = dialogueEngine.CurrentCharacter?.name ?? string.Empty,
             };
 
-            foreach (var (character, value) in protagonistData.GetAllAffinities())
+            foreach (var (character, value) in ProtagonistData.GetAllAffinities())
             {
                 data.affinities.Add(new AffinitySaveEntry
                 {
@@ -82,8 +90,7 @@ namespace VN.Runtime
             }
 
             SaveSystem.Save(data);
-            Debug.Log($"[Save] Chapitre : {data.currentChapterName} | Ligne : {data.currentLineIndex}");
-
+            Debug.Log($"[Save] Chapitre : {data.currentChapterName} | Ligne : {data.currentLineIndex} | Perso : {data.lastCharacterOnScreenName}");
             OnSaved?.Invoke();
         }
 
@@ -100,18 +107,18 @@ namespace VN.Runtime
                 return false;
             }
 
-            Debug.Log($"[Save] Chargement — Chapitre : {data.currentChapterName} | Ligne : {data.currentLineIndex}");
+            Debug.Log($"[Save] Chargement — Chapitre : {data.currentChapterName} | Ligne : {data.currentLineIndex} | Perso : {data.lastCharacterOnScreenName}");
 
-            protagonistData.playerName = data.protagonistName;
-            protagonistData.hairColor = new Color(data.hairColorR, data.hairColorG, data.hairColorB);
-            protagonistData.eyeColor = new Color(data.eyeColorR, data.eyeColorG, data.eyeColorB);
+            ProtagonistData.playerName = data.protagonistName;
+            ProtagonistData.hairColor = new Color(data.hairColorR, data.hairColorG, data.hairColorB);
+            ProtagonistData.eyeColor = new Color(data.eyeColorR, data.eyeColorG, data.eyeColorB);
 
-            protagonistData.ResetAffinities();
+            ProtagonistData.ResetAffinities();
             foreach (var entry in data.affinities)
             {
                 CharacterData character = FindCharacterByName(entry.characterName);
                 if (character != null)
-                    protagonistData.SetAffinity(character, entry.value);
+                    ProtagonistData.SetAffinity(character, entry.value);
             }
 
             DialogueChapter chapter = FindChapterByName(data.currentChapterName);
@@ -119,6 +126,13 @@ namespace VN.Runtime
             {
                 Debug.LogError($"[Save] Chapitre introuvable : '{data.currentChapterName}'. Vérifie la liste allChapters dans l'Inspector.");
                 return false;
+            }
+
+            // Restore le personnage visible AVANT de charger le nœud
+            if (!string.IsNullOrEmpty(data.lastCharacterOnScreenName))
+            {
+                CharacterData savedCharacter = FindCharacterByName(data.lastCharacterOnScreenName);
+                dialogueEngine.RestoreCharacter(savedCharacter);
             }
 
             chapterManager.LoadChapterAtLine(chapter, data.currentLineIndex);
@@ -137,15 +151,28 @@ namespace VN.Runtime
         private DialogueChapter FindChapterByName(string assetName)
             => allChapters.Find(c => c.name == assetName);
 
-        private CharacterData FindCharacterByName(string assetName)
+        private void BuildCharacterCache()
         {
+            _characterCache = new Dictionary<string, CharacterData>();
             foreach (var chapter in allChapters)
                 foreach (var node in chapter.nodes)
                 {
-                    if (node.characterOnScreen?.name == assetName) return node.characterOnScreen;
-                    if (node.line?.speaker?.name == assetName) return node.line.speaker;
+                    RegisterCharacter(node.characterOnScreen);
+                    RegisterCharacter(node.line?.speaker);
                 }
-            return null;
+        }
+
+        private void RegisterCharacter(CharacterData character)
+        {
+            if (character != null && !_characterCache.ContainsKey(character.name))
+                _characterCache[character.name] = character;
+        }
+
+        private CharacterData FindCharacterByName(string assetName)
+        {
+            if (_characterCache == null) BuildCharacterCache();
+            _characterCache.TryGetValue(assetName, out CharacterData result);
+            return result;
         }
     }
 }

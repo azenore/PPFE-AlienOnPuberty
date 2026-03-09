@@ -36,36 +36,67 @@ namespace VN.Runtime
         public void LoadChapterAtLine(DialogueChapter chapter, int startIndex)
         {
             _nodes = chapter.nodes;
-            _currentIndex = Mathf.Clamp(startIndex, 0, Mathf.Max(0, _nodes.Count - 1));
+
+            // Clamp à un index toujours valide — évite de déclencher OnChapterFinished au restore
+            int clampedIndex = Mathf.Clamp(startIndex, 0, Mathf.Max(0, _nodes.Count - 1));
+            _currentIndex = clampedIndex;
             _waitingForChoice = false;
 
             if (chapter.background != null)
                 OnBackgroundChanged?.Invoke(chapter.background);
 
-            Advance();
+            DisplayNodeAt(_currentIndex);
         }
 
-        /// <summary>Advances to the next node. Call this on player input (click/tap).</summary>
+        /// <summary>
+        /// Restores the last visible character without firing events.
+        /// Must be called before LoadChapterAtLine when loading a save.
+        /// </summary>
+        public void RestoreCharacter(CharacterData character)
+        {
+            CurrentCharacter = character;
+        }
+
+        /// <summary>Advances to the next node. Call this on player input.</summary>
         public void Advance()
         {
             if (_waitingForChoice) return;
+            DisplayNodeAt(_currentIndex);
+        }
 
-            if (_currentIndex >= _nodes.Count)
+        /// <summary>Resolves a player choice, applies affinity and signals chapter transition.</summary>
+        public void SelectChoice(DialogueChoice choice)
+        {
+            if (!_waitingForChoice) return;
+            _waitingForChoice = false;
+            affinitySystem.ApplyChoiceAffinity(choice);
+            OnChapterFinished?.Invoke(choice.nextChapter);
+        }
+
+        private void DisplayNodeAt(int index)
+        {
+            if (index >= _nodes.Count)
             {
                 OnChapterFinished?.Invoke(null);
                 return;
             }
 
-            DialogueNode node = _nodes[_currentIndex];
-            _currentIndex++;
+            DialogueNode node = _nodes[index];
+            _currentIndex = index + 1;
 
             if (node.backgroundOverride != null)
                 OnBackgroundChanged?.Invoke(node.backgroundOverride);
 
             if (node.characterOnScreen != null)
             {
+                // Le nœud définit explicitement un nouveau personnage
                 CurrentCharacter = node.characterOnScreen;
                 OnCharacterOnScreenChanged?.Invoke(node.characterOnScreen, node.characterOnScreenEmotion);
+            }
+            else if (CurrentCharacter != null)
+            {
+                // Le personnage persiste depuis un nœud précédent — notifie quand même l'UI pour le restore
+                OnCharacterOnScreenChanged?.Invoke(CurrentCharacter, EmotionType.Neutral);
             }
 
             if (node.overrideProtagonistEmotion)
@@ -80,16 +111,6 @@ namespace VN.Runtime
             {
                 OnLineReady?.Invoke(node.line);
             }
-        }
-
-        /// <summary>Resolves a player choice, applies affinity and signals chapter transition.</summary>
-        public void SelectChoice(DialogueChoice choice)
-        {
-            if (!_waitingForChoice) return;
-
-            _waitingForChoice = false;
-            affinitySystem.ApplyChoiceAffinity(choice);
-            OnChapterFinished?.Invoke(choice.nextChapter);
         }
     }
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using VN.Data;
 
 namespace VN.Runtime
@@ -54,7 +54,7 @@ namespace VN.Runtime
         {
             if (chapter == null)
             {
-                Debug.Log("[ChapterManager] Histoire terminÈe.");
+                Debug.Log("[ChapterManager] Histoire termin√©e.");
                 return;
             }
 
@@ -82,20 +82,18 @@ namespace VN.Runtime
             if (chapter == null) return;
             _inPhoneChapter = true;
             _currentPhoneChapter = chapter;
-            phoneChatController.OpenChat();
+            phoneChatController.OpenChat(chapter);  // ‚Üê correction
             phoneEngine.LoadPhoneChapter(chapter);
         }
 
         private void HandleDialogueChapterFinished(DialogueChapter nextFromChoice)
         {
-            // Si le choix impose un chapitre dialogue, on y va directement
             if (nextFromChoice != null)
             {
                 LoadChapter(nextFromChoice);
                 return;
             }
 
-            // Sinon : prioritÈ au chapitre tÈlÈphone s'il est dÈfini
             if (_currentChapter.nextPhoneChapter != null)
             {
                 LoadPhoneChapter(_currentChapter.nextPhoneChapter);
@@ -114,7 +112,7 @@ namespace VN.Runtime
         private void HandleNextPhoneChapter(PhoneChapter next)
         {
             _currentPhoneChapter = next;
-            phoneChatController.OpenChat();
+            phoneChatController.OpenChat(next);     // ‚Üê correction
             phoneEngine.LoadPhoneChapter(next);
         }
     }

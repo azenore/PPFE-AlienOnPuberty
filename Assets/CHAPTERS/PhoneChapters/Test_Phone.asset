@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b84f2b392d3fe4baa1a996e346da38, type: 3}
   m_Name: Test_Phone
   m_EditorClassIdentifier: 
-  participants:
-  - {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-  - {fileID: 11400000, guid: e540e76a904336f4c818ad37d6a70cdc, type: 2}
+  groupName: Les Maxis Baiseurs
+  participants: []
   messages:
   - sender: {fileID: 11400000, guid: e540e76a904336f4c818ad37d6a70cdc, type: 2}
     text: "Hello je suis Isaac on est dans la m\xEAme class, c'est \xE7a [NAME] ?"

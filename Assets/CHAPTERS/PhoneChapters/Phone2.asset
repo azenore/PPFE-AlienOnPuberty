@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b84f2b392d3fe4baa1a996e346da38, type: 3}
   m_Name: Phone2
   m_EditorClassIdentifier: 
-  participants: []
+  groupName: 
+  participants:
+  - {fileID: 11400000, guid: e540e76a904336f4c818ad37d6a70cdc, type: 2}
+  - {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
   messages:
   - sender: {fileID: 0}
     text: hihi je suis [NAME] je suis trop uwu

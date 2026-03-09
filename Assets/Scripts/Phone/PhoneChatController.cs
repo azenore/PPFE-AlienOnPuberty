@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VN.Data;
@@ -22,6 +23,9 @@ namespace VN.UI
         [SerializeField] private MessageBubbleView bubblePrefab;
         [SerializeField] private Button advanceButton;
 
+        [Tooltip("Texte affichant le nom du groupe ou les participants.")]
+        [SerializeField] private TextMeshProUGUI participantsText;
+
         private readonly List<MessageBubbleView> _bubbles = new();
 
         private void OnEnable()
@@ -38,10 +42,12 @@ namespace VN.UI
             phoneEngine.OnPhoneChapterFinished -= HandlePhoneChapterFinished;
         }
 
-        /// <summary>Shows the phone panel and clears previous messages.</summary>
-        public void OpenChat()
+        /// <summary>Shows the phone panel, clears previous messages and updates the header.</summary>
+        public void OpenChat(PhoneChapter chapter)
         {
             ClearBubbles();
+            if (participantsText != null)
+                participantsText.text = chapter.GetHeaderLabel();
             phonePanel.SetActive(true);
         }
 
@@ -60,9 +66,6 @@ namespace VN.UI
             StartCoroutine(ScrollToBottom());
         }
 
-        // Attend la fin de l'animation scale de la bulle avant de scroller.
-        // Pendant l'anim, le scale Y est entre 0 et 1 ce qui fausse le calcul
-        // de hauteur du ContentSizeFitter. On force un rebuild une fois terminé.
         private IEnumerator ScrollToBottom()
         {
             yield return new WaitForSeconds(BubbleAnimDuration);

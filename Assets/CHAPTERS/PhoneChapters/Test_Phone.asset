@@ -17,9 +17,30 @@ MonoBehaviour:
   messages:
   - sender: {fileID: 11400000, guid: e540e76a904336f4c818ad37d6a70cdc, type: 2}
     text: "Hello je suis Isaac on est dans la m\xEAme class, c'est \xE7a [NAME] ?"
+    choices: []
   - sender: {fileID: 11400000, guid: e540e76a904336f4c818ad37d6a70cdc, type: 2}
     text: 'hihi '
+    choices: []
   - sender: {fileID: 0}
     text: Je te baise Isaac
+    choices:
+    - label: jE RIGOLE
+      affinityTarget: {fileID: 0}
+      affinityDelta: 0
+      followUpMessages:
+      - sender: {fileID: 0}
+        text: "Je rigole c'\xE9tait une blague Isaac"
+        choices: []
+      nextPhoneChapter: {fileID: 0}
+      nextChapter: {fileID: 0}
+    - label: "Je suis s\xE9rieuse"
+      affinityTarget: {fileID: 0}
+      affinityDelta: 0
+      followUpMessages:
+      - sender: {fileID: 0}
+        text: "Je suis s\xE9rieuse Baise Moi"
+        choices: []
+      nextPhoneChapter: {fileID: 0}
+      nextChapter: {fileID: 0}
   defaultNextChapter: {fileID: 0}
   defaultNextPhoneChapter: {fileID: 0}

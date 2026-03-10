@@ -1,6 +1,6 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
-using VN.Data;
 
 namespace VN.Data
 {
@@ -13,6 +13,12 @@ namespace VN.Data
         [TextArea(2, 5)]
         public string text;
 
+        [Tooltip("Si renseigné, un menu de choix s'affiche après ce message.")]
+        public List<PhoneChoice> choices = new();
+
         public bool IsFromProtagonist => sender == null;
+
+        /// <summary>True if this message triggers a choice menu.</summary>
+        public bool HasChoices => choices != null && choices.Count > 0;
     }
 }

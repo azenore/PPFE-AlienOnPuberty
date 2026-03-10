@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using VN.Data;
@@ -16,14 +16,17 @@ namespace VN.Runtime
         [SerializeField] private ProtagonistData protagonistDataAsset;
         [SerializeField] private ChapterManager chapterManager;
         [SerializeField] private DialogueEngine dialogueEngine;
+        [SerializeField] private PhoneEngine phoneEngine;
 
         [Tooltip("Tous les DialogueChapter du jeu, dans l'ordre.")]
         [SerializeField] private List<DialogueChapter> allChapters;
 
+        [Tooltip("Tous les PhoneChapter du jeu.")]
+        [SerializeField] private List<PhoneChapter> allPhoneChapters;
+
         /// <summary>Fired each time a save is successfully written to disk.</summary>
         public event Action OnSaved;
 
-        // Copie runtime — évite de polluer l'asset ScriptableObject en éditeur
         public ProtagonistData ProtagonistData { get; private set; }
 
         private Dictionary<string, CharacterData> _characterCache;
@@ -59,7 +62,11 @@ namespace VN.Runtime
 
         private void TrySave()
         {
-            if (string.IsNullOrEmpty(chapterManager.CurrentChapterName)) return;
+            bool hasDialogue = !string.IsNullOrEmpty(chapterManager.CurrentChapterName);
+            bool hasPhone = chapterManager.IsInPhoneChapter &&
+                            !string.IsNullOrEmpty(chapterManager.CurrentPhoneChapterName);
+
+            if (!hasDialogue && !hasPhone) return;
             SaveGame();
         }
 
@@ -80,6 +87,14 @@ namespace VN.Runtime
                 lastCharacterOnScreenName = dialogueEngine.CurrentCharacter?.name ?? string.Empty,
             };
 
+            if (chapterManager.IsInPhoneChapter)
+            {
+                data.currentPhoneChapterName = chapterManager.CurrentPhoneChapterName;
+                data.currentPhoneMessageIndex = phoneEngine.LastRevealedIndex;
+                data.currentPhoneChoiceMessageIndex = phoneEngine.ChoiceMessageIndex;
+                data.currentPhoneChoiceIndex = phoneEngine.SelectedChoiceIndex;
+            }
+
             foreach (var (character, value) in ProtagonistData.GetAllAffinities())
             {
                 data.affinities.Add(new AffinitySaveEntry
@@ -90,7 +105,7 @@ namespace VN.Runtime
             }
 
             SaveSystem.Save(data);
-            Debug.Log($"[Save] Chapitre : {data.currentChapterName} | Ligne : {data.currentLineIndex} | Perso : {data.lastCharacterOnScreenName}");
+            Debug.Log($"[Save] Chapitre : {data.currentChapterName} | Phone : {data.currentPhoneChapterName} | Message : {data.currentPhoneMessageIndex} | Choix : {data.currentPhoneChoiceMessageIndex}/{data.currentPhoneChoiceIndex}");
             OnSaved?.Invoke();
         }
 
@@ -103,11 +118,9 @@ namespace VN.Runtime
             SaveData data = SaveSystem.Load();
             if (data == null)
             {
-                Debug.LogWarning("[Save] Aucune sauvegarde trouvée.");
+                Debug.LogWarning("[Save] Aucune sauvegarde trouvÃ©e.");
                 return false;
             }
-
-            Debug.Log($"[Save] Chargement — Chapitre : {data.currentChapterName} | Ligne : {data.currentLineIndex} | Perso : {data.lastCharacterOnScreenName}");
 
             ProtagonistData.playerName = data.protagonistName;
             ProtagonistData.hairColor = new Color(data.hairColorR, data.hairColorG, data.hairColorB);
@@ -121,14 +134,51 @@ namespace VN.Runtime
                     ProtagonistData.SetAffinity(character, entry.value);
             }
 
+            // Restaure le phone chapter en prioritÃ© s'il est dÃ©fini
+            if (!string.IsNullOrEmpty(data.currentPhoneChapterName))
+            {
+                PhoneChapter phoneChapter = FindPhoneChapterByName(data.currentPhoneChapterName);
+                if (phoneChapter == null)
+                {
+                    Debug.LogError($"[Save] PhoneChapter introuvable : '{data.currentPhoneChapterName}'.");
+                    return false;
+                }
+
+                // MÃ©morise silencieusement le dialogue chapter sans dÃ©clencher le moteur
+                if (!string.IsNullOrEmpty(data.currentChapterName))
+                {
+                    DialogueChapter dialogueCh = FindChapterByName(data.currentChapterName);
+                    if (dialogueCh != null)
+                        chapterManager.SetCurrentChapterSilent(dialogueCh);
+                }
+
+                // Si un choix avait Ã©tÃ© fait, on restaure via RestoreAfterChoice
+                if (data.currentPhoneChoiceIndex >= 0 && data.currentPhoneChoiceMessageIndex >= 0)
+                {
+                    Debug.Log($"[Save] Restore phone avec choix â†’ message {data.currentPhoneChoiceMessageIndex}, choix {data.currentPhoneChoiceIndex}");
+                    chapterManager.LoadPhoneChapterAfterChoice(
+                        phoneChapter,
+                        data.currentPhoneChoiceMessageIndex,
+                        data.currentPhoneChoiceIndex
+                    );
+                }
+                else
+                {
+                    Debug.Log($"[Save] Restore phone â†’ {data.currentPhoneChapterName} | Message : {data.currentPhoneMessageIndex}");
+                    chapterManager.LoadPhoneChapterAtMessage(phoneChapter, data.currentPhoneMessageIndex);
+                }
+
+                return true;
+            }
+
+            // Sinon restaure le chapitre dialogue normalement
             DialogueChapter chapter = FindChapterByName(data.currentChapterName);
             if (chapter == null)
             {
-                Debug.LogError($"[Save] Chapitre introuvable : '{data.currentChapterName}'. Vérifie la liste allChapters dans l'Inspector.");
+                Debug.LogError($"[Save] Chapitre introuvable : '{data.currentChapterName}'.");
                 return false;
             }
 
-            // Restore le personnage visible AVANT de charger le nœud
             if (!string.IsNullOrEmpty(data.lastCharacterOnScreenName))
             {
                 CharacterData savedCharacter = FindCharacterByName(data.lastCharacterOnScreenName);
@@ -139,17 +189,20 @@ namespace VN.Runtime
             return true;
         }
 
-        [ContextMenu("Debug — Forcer sauvegarde")]
+        [ContextMenu("Debug â€” Forcer sauvegarde")]
         private void ForceSave() => SaveGame();
 
-        [ContextMenu("Debug — Supprimer sauvegarde")]
+        [ContextMenu("Debug â€” Supprimer sauvegarde")]
         private void DeleteSave() => SaveSystem.DeleteSave();
 
-        [ContextMenu("Debug — Afficher chemin")]
+        [ContextMenu("Debug â€” Afficher chemin")]
         private void PrintPath() => Debug.Log(SaveSystem.GetSavePath());
 
         private DialogueChapter FindChapterByName(string assetName)
             => allChapters.Find(c => c.name == assetName);
+
+        private PhoneChapter FindPhoneChapterByName(string assetName)
+            => allPhoneChapters.Find(c => c.name == assetName);
 
         private void BuildCharacterCache()
         {

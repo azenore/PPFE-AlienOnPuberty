@@ -48,8 +48,27 @@ namespace VN.UI
             bubbleBackground.type = Image.Type.Sliced;
         }
 
-        /// <summary>Configures the bubble with a message and the protagonist's display name.</summary>
+        /// <summary>Configures the bubble with animation. Use for new incoming messages.</summary>
         public void Setup(PhoneMessage message, string protagonistName)
+        {
+            ApplyContent(message, protagonistName);
+            StartCoroutine(AppearAnimation());
+        }
+
+        /// <summary>Configures the bubble instantly without animation. Use when replaying history on load.</summary>
+        public void SetupInstant(PhoneMessage message, string protagonistName)
+        {
+            ApplyContent(message, protagonistName);
+            transform.localScale = Vector3.one;
+        }
+
+        private void OnDisable()
+        {
+            transform.localScale = Vector3.one;
+        }
+
+        // Shared content assignment between Setup and SetupInstant
+        private void ApplyContent(PhoneMessage message, string protagonistName)
         {
             messageText.text = message.text.Replace(NamePlaceholder, protagonistName);
 
@@ -76,8 +95,6 @@ namespace VN.UI
                 senderNameText.color = characterTextColor;
                 _hlg.childAlignment = TextAnchor.UpperLeft;
             }
-
-            StartCoroutine(AppearAnimation());
         }
 
         private IEnumerator AppearAnimation()

@@ -11,15 +11,28 @@ namespace VN.Data
         public EmotionType currentEmotion = EmotionType.Neutral;
         public Color hairColor = Color.white;
         public Color eyeColor = Color.white;
+        public string hairId;
+        public string eyeId;
 
-        [Tooltip("CharacterData contenant les sprites du protagoniste")]
-        public CharacterData characterData;
+        [Tooltip("Associe une combinaison hairId/eyeId à des sprites par émotion")]
+        [SerializeField] private List<AppearanceEntry> appearances = new();
 
-        [SerializeField]
-        private List<AffinityEntry> affinities = new();
+        [SerializeField] private List<AffinityEntry> affinities = new();
 
         public event Action<CharacterData, int> OnAffinityChanged;
         public event Action<EmotionType> OnEmotionChanged;
+
+        /// <summary>Returns the sprite matching the current hairId, eyeId and the given emotion. Falls back to Neutral.</summary>
+        public Sprite GetSprite(EmotionType emotion)
+        {
+            if (appearances == null) return null;
+            foreach (var entry in appearances)
+            {
+                if (entry.hairId != hairId || entry.eyeId != eyeId) continue;
+                return entry.GetSprite(emotion);
+            }
+            return null;
+        }
 
         /// <summary>Returns a runtime clone of this asset to avoid mutating the original ScriptableObject on disk.</summary>
         public ProtagonistData CreateRuntimeCopy()
@@ -74,14 +87,12 @@ namespace VN.Data
             for (int i = 0; i < affinities.Count; i++)
             {
                 if (affinities[i].character != character) continue;
-
                 var entry = affinities[i];
                 entry.value = Mathf.Clamp(entry.value + delta, 0, 100);
                 affinities[i] = entry;
                 OnAffinityChanged?.Invoke(character, entry.value);
                 return;
             }
-
             int newValue = Mathf.Clamp(delta, 0, 100);
             affinities.Add(new AffinityEntry { character = character, value = newValue });
             OnAffinityChanged?.Invoke(character, newValue);
@@ -92,6 +103,35 @@ namespace VN.Data
         {
             currentEmotion = emotion;
             OnEmotionChanged?.Invoke(emotion);
+        }
+
+        [Serializable]
+        public class AppearanceEntry
+        {
+            public string hairId;
+            public string eyeId;
+            // Pas de = new() ici — évite l'appel depuis le loading thread
+            [SerializeField] private List<EmotionSprite> emotionSprites;
+
+            /// <summary>Returns the sprite for the given emotion, falls back to Neutral.</summary>
+            public Sprite GetSprite(EmotionType emotion)
+            {
+                if (emotionSprites == null) return null;
+                Sprite fallback = null;
+                foreach (var es in emotionSprites)
+                {
+                    if (es.emotion == emotion) return es.sprite;
+                    if (es.emotion == EmotionType.Neutral) fallback = es.sprite;
+                }
+                return fallback;
+            }
+        }
+
+        [Serializable]
+        private struct EmotionSprite
+        {
+            public EmotionType emotion;
+            public Sprite sprite;
         }
 
         [Serializable]

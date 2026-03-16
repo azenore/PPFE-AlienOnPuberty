@@ -1,50 +1,54 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using VN.Data;
+using VN.Runtime;
 
 namespace VN.UI
 {
     public class ProtagonistEmotionView : MonoBehaviour
     {
-        [Serializable]
-        private struct EmotionSprite
-        {
-            public EmotionType emotion;
-            public Sprite sprite;
-        }
-
         [SerializeField] private ProtagonistData protagonist;
+        [SerializeField] private DialogueEngine dialogueEngine;
         [SerializeField] private Image emotionImage;
-        [SerializeField] private List<EmotionSprite> emotionSprites;
 
-        private Dictionary<EmotionType, Sprite> _cache;
-
-        private void Awake()
-        {
-            _cache = new Dictionary<EmotionType, Sprite>(emotionSprites.Count);
-            foreach (var entry in emotionSprites)
-                _cache.TryAdd(entry.emotion, entry.sprite);
-        }
+        private EmotionType _currentEmotion = EmotionType.Neutral;
 
         private void Start()
         {
-            // Affiche l'émotion courante dès l'activation (Neutral par défaut)
-            UpdateEmotion(protagonist.currentEmotion);
+            Refresh();
         }
 
-        private void OnEnable() => protagonist.OnEmotionChanged += UpdateEmotion;
-        private void OnDisable() => protagonist.OnEmotionChanged -= UpdateEmotion;
-
-        private void UpdateEmotion(EmotionType emotion)
+        private void OnEnable()
         {
-            if (_cache == null) return;
+            dialogueEngine.OnProtagonistEmotionChanged += OnEmotionChanged;
+            dialogueEngine.OnLineReady += OnLineReady;
+        }
 
-            if (_cache.TryGetValue(emotion, out Sprite sprite))
+        private void OnDisable()
+        {
+            dialogueEngine.OnProtagonistEmotionChanged -= OnEmotionChanged;
+            dialogueEngine.OnLineReady -= OnLineReady;
+        }
+
+        private void OnEmotionChanged(EmotionType emotion)
+        {
+            _currentEmotion = emotion;
+            Refresh();
+        }
+
+        private void OnLineReady(DialogueLine _)
+        {
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+            Sprite sprite = protagonist.GetSprite(_currentEmotion);
+            if (sprite != null)
+            {
                 emotionImage.sprite = sprite;
-            else if (_cache.TryGetValue(EmotionType.Neutral, out Sprite neutral))
-                emotionImage.sprite = neutral;
+                emotionImage.gameObject.SetActive(true);
+            }
         }
     }
 }

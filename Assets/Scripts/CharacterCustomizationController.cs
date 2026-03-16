@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using VN.Data;
 using VN.Runtime;
 
@@ -10,46 +11,48 @@ namespace VN.UI
     {
         [Header("References")]
         [SerializeField] private ProtagonistData protagonist;
+        [SerializeField] private GameSaveController gameSaveController;
         [SerializeField] private ChapterManager chapterManager;
         [SerializeField] private MainMenuController mainMenuController;
 
         [Header("Name")]
         [SerializeField] private TMP_InputField nameInputField;
 
-        [Header("Hair Colors")]
+        [Header("Hair Color")]
         [SerializeField] private List<ColorOption> hairColorOptions;
-        [SerializeField] private Transform hairSwatchContainer;
-        [SerializeField] private ColorSwatchButton colorSwatchPrefab;
+        [SerializeField] private ArrowSelector hairColorSelector;
 
-        [Header("Eye Colors")]
+        [Header("Eye Color")]
         [SerializeField] private List<ColorOption> eyeColorOptions;
-        [SerializeField] private Transform eyeSwatchContainer;
+        [SerializeField] private ArrowSelector eyeColorSelector;
+
+        [Header("Preview")]
+        [SerializeField] private Image protagonistPreviewImage;
 
         private ColorOption _selectedHairColor;
         private ColorOption _selectedEyeColor;
 
-        private readonly List<ColorSwatchButton> _hairSwatches = new();
-        private readonly List<ColorSwatchButton> _eyeSwatches = new();
-
-        private bool _swatchesBuilt = false;
-
-        /// <summary>Called by MainMenuController when entering customization screen.</summary>
+        /// <summary>Called by MainMenuController when entering the customization screen.</summary>
         public void PrepareCustomization()
         {
             nameInputField.text = protagonist.playerName;
 
-            if (!_swatchesBuilt)
+            hairColorSelector.Setup(hairColorOptions, option =>
             {
-                BuildSwatches(hairColorOptions, hairSwatchContainer, _hairSwatches, OnHairSelected);
-                BuildSwatches(eyeColorOptions, eyeSwatchContainer, _eyeSwatches, OnEyeSelected);
-                _swatchesBuilt = true;
-            }
+                _selectedHairColor = option;
+                protagonist.hairId = option.id;
+                RefreshPreviewSprite();
+            });
 
-            if (hairColorOptions.Count > 0) OnHairSelected(hairColorOptions[0]);
-            if (eyeColorOptions.Count > 0) OnEyeSelected(eyeColorOptions[0]);
+            eyeColorSelector.Setup(eyeColorOptions, option =>
+            {
+                _selectedEyeColor = option;
+                protagonist.eyeId = option.id;
+                RefreshPreviewSprite();
+            });
         }
 
-        /// <summary>Called by StartButton OnClick. Applies customization and launches the game.</summary>
+        /// <summary>Called by the Confirm button OnClick. Applies customization and launches the game.</summary>
         public void Confirm()
         {
             string trimmedName = nameInputField.text.Trim();
@@ -58,44 +61,20 @@ namespace VN.UI
             if (_selectedHairColor != null) protagonist.hairColor = _selectedHairColor.color;
             if (_selectedEyeColor != null) protagonist.eyeColor = _selectedEyeColor.color;
 
+            gameSaveController.ApplyCustomization();
+
             SaveSystem.DeleteSave();
             mainMenuController.OnGameStarted();
             chapterManager.StartGame();
         }
 
-        private void BuildSwatches(
-            List<ColorOption> options,
-            Transform container,
-            List<ColorSwatchButton> swatchList,
-            System.Action<ColorOption> callback)
+        private void RefreshPreviewSprite()
         {
-            foreach (var option in options)
-            {
-                var swatch = Instantiate(colorSwatchPrefab, container);
-                swatch.Setup(option, callback);
-                swatchList.Add(swatch);
-            }
-        }
+            if (protagonistPreviewImage == null) return;
 
-        private void OnHairSelected(ColorOption option)
-        {
-            _selectedHairColor = option;
-            UpdateSelection(_hairSwatches, hairColorOptions, option);
-        }
-
-        private void OnEyeSelected(ColorOption option)
-        {
-            _selectedEyeColor = option;
-            UpdateSelection(_eyeSwatches, eyeColorOptions, option);
-        }
-
-        private void UpdateSelection(
-            List<ColorSwatchButton> swatches,
-            List<ColorOption> options,
-            ColorOption selected)
-        {
-            for (int i = 0; i < swatches.Count; i++)
-                swatches[i].SetSelected(options[i] == selected);
+            Sprite sprite = protagonist.GetSprite(EmotionType.Neutral);
+            protagonistPreviewImage.sprite = sprite;
+            protagonistPreviewImage.gameObject.SetActive(sprite != null);
         }
     }
 }

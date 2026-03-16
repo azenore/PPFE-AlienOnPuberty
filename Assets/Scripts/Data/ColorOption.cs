@@ -6,6 +6,7 @@ namespace VN.Data
     public class ColorOption : ScriptableObject
     {
         public string optionName;
+        public string id;
         public Color color = Color.white;
     }
 }

@@ -70,6 +70,17 @@ namespace VN.Runtime
             SaveGame();
         }
 
+        /// <summary>Applies customization choices from the asset to the runtime copy before starting a new game.</summary>
+        public void ApplyCustomization()
+        {
+            ProtagonistData.playerName = protagonistDataAsset.playerName;
+            ProtagonistData.hairColor = protagonistDataAsset.hairColor;
+            ProtagonistData.eyeColor = protagonistDataAsset.eyeColor;
+            ProtagonistData.hairId = protagonistDataAsset.hairId;
+            ProtagonistData.eyeId = protagonistDataAsset.eyeId;
+            ProtagonistData.ResetAffinities();
+        }
+
         /// <summary>Builds a SaveData snapshot from current game state and writes it to disk.</summary>
         public void SaveGame()
         {
@@ -134,7 +145,6 @@ namespace VN.Runtime
                     ProtagonistData.SetAffinity(character, entry.value);
             }
 
-            // Restaure le phone chapter en priorité s'il est défini
             if (!string.IsNullOrEmpty(data.currentPhoneChapterName))
             {
                 PhoneChapter phoneChapter = FindPhoneChapterByName(data.currentPhoneChapterName);
@@ -144,7 +154,6 @@ namespace VN.Runtime
                     return false;
                 }
 
-                // Mémorise silencieusement le dialogue chapter sans déclencher le moteur
                 if (!string.IsNullOrEmpty(data.currentChapterName))
                 {
                     DialogueChapter dialogueCh = FindChapterByName(data.currentChapterName);
@@ -152,15 +161,10 @@ namespace VN.Runtime
                         chapterManager.SetCurrentChapterSilent(dialogueCh);
                 }
 
-                // Si un choix avait été fait, on restaure via RestoreAfterChoice
                 if (data.currentPhoneChoiceIndex >= 0 && data.currentPhoneChoiceMessageIndex >= 0)
                 {
                     Debug.Log($"[Save] Restore phone avec choix → message {data.currentPhoneChoiceMessageIndex}, choix {data.currentPhoneChoiceIndex}");
-                    chapterManager.LoadPhoneChapterAfterChoice(
-                        phoneChapter,
-                        data.currentPhoneChoiceMessageIndex,
-                        data.currentPhoneChoiceIndex
-                    );
+                    chapterManager.LoadPhoneChapterAfterChoice(phoneChapter, data.currentPhoneChoiceMessageIndex, data.currentPhoneChoiceIndex);
                 }
                 else
                 {
@@ -171,7 +175,6 @@ namespace VN.Runtime
                 return true;
             }
 
-            // Sinon restaure le chapitre dialogue normalement
             DialogueChapter chapter = FindChapterByName(data.currentChapterName);
             if (chapter == null)
             {

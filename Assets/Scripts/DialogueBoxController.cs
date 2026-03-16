@@ -19,7 +19,7 @@ namespace VN.UI
         [SerializeField] private TextMeshProUGUI speakerNameText;
         [SerializeField] private TextMeshProUGUI dialogueText;
 
-        [Tooltip("Portrait du protagoniste — toujours visible")]
+        [Tooltip("Portrait du protagoniste toujours visible")]
         [SerializeField] private Image protagonistPortrait;
 
         private EmotionType _currentEmotion = EmotionType.Neutral;
@@ -81,9 +81,11 @@ namespace VN.UI
         private void RefreshProtagonistPortrait()
         {
             if (protagonistPortrait == null) return;
-            if (protagonist.characterData == null) return;
 
-            protagonistPortrait.sprite = protagonist.characterData.GetSprite(_currentEmotion);
+            Sprite sprite = protagonist.GetSprite(_currentEmotion);
+            if (sprite == null) return;
+
+            protagonistPortrait.sprite = sprite;
             protagonistPortrait.gameObject.SetActive(true);
         }
     }

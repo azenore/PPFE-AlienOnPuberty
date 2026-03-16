@@ -12,6 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfac03d7dcb7a8c42ad1e22cdaf16766, type: 3}
   m_Name: CH_AlienGirl
   m_EditorClassIdentifier: 
-  playerName: Yuki
+  playerName: BeN
   currentEmotion: 0
-  affinities: []
+  hairColor: {r: 0.990566, g: 0.85723734, b: 0.378471, a: 1}
+  eyeColor: {r: 0.10457456, g: 0.3295636, b: 0.8867924, a: 1}
+  hairId: blond
+  eyeId: bleu
+  appearances:
+  - hairId: blond
+    eyeId: bleu
+    emotionSprites:
+    - emotion: 0
+      sprite: {fileID: 21300000, guid: a3442f07e1b07f24592a2aa7f1bf2c17, type: 3}
+  - hairId: brun
+    eyeId: bleu
+    emotionSprites:
+    - emotion: 0
+      sprite: {fileID: 21300000, guid: 52d55d98abc915d4eb2809faec29a9d0, type: 3}
+  affinities:
+  - character: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    value: 10

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using VN.Data;
 
 namespace VN.Runtime
@@ -11,6 +12,7 @@ namespace VN.Runtime
 
         [Header("Chapters")]
         [SerializeField] private DialogueChapter startingChapter;
+        [SerializeField] private ProtagonistData protagonist;
 
         [Header("UI")]
         [SerializeField] private VN.UI.PhoneChatController phoneChatController;
@@ -28,6 +30,9 @@ namespace VN.Runtime
 
         /// <summary>Asset name of the active phone chapter. Used when building a save snapshot.</summary>
         public string CurrentPhoneChapterName => _currentPhoneChapter != null ? _currentPhoneChapter.name : string.Empty;
+
+        /// <summary>Fired when a phone chapter starts.</summary>
+        public event Action OnPhoneChapterStarted;
 
         private void Start()
         {
@@ -93,6 +98,7 @@ namespace VN.Runtime
             _currentPhoneChapter = chapter;
             phoneChatController.OpenChat(chapter);
             phoneEngine.LoadPhoneChapter(chapter);
+            OnPhoneChapterStarted?.Invoke();
         }
 
         /// <summary>
@@ -106,11 +112,9 @@ namespace VN.Runtime
             _currentPhoneChapter = chapter;
             gamePanel.SetActive(true);
 
-            // Affiche tout l'historique jusqu'au point de sauvegarde sans animation
             phoneChatController.OpenChatWithReplay(chapter, messageIndex);
-
-            // Positionne le moteur au message suivant SANS rien révéler
             phoneEngine.RestoreAtMessage(chapter, messageIndex + 1);
+            OnPhoneChapterStarted?.Invoke();
         }
 
         /// <summary>
@@ -124,11 +128,9 @@ namespace VN.Runtime
             _currentPhoneChapter = chapter;
             gamePanel.SetActive(true);
 
-            // Rejoue l'historique jusqu'au message de choix inclus (le choix sera affiché comme bulle protagoniste)
             phoneChatController.OpenChatWithReplay(chapter, choiceMessageIndex, choiceIndex);
-
-            // Positionne le moteur après le message de choix avec le routage du choix appliqué
             phoneEngine.RestoreAfterChoice(chapter, choiceMessageIndex, choiceIndex);
+            OnPhoneChapterStarted?.Invoke();
         }
 
         private void HandleDialogueChapterFinished(DialogueChapter nextFromChoice)
@@ -136,6 +138,13 @@ namespace VN.Runtime
             if (nextFromChoice != null)
             {
                 LoadChapter(nextFromChoice);
+                return;
+            }
+
+            DialogueChapter unlockedChapter = _currentChapter.GetUnlockedChapter(protagonist);
+            if (unlockedChapter != null)
+            {
+                LoadChapter(unlockedChapter);
                 return;
             }
 
@@ -159,6 +168,7 @@ namespace VN.Runtime
             _currentPhoneChapter = next;
             phoneChatController.OpenChat(next);
             phoneEngine.LoadPhoneChapter(next);
+            OnPhoneChapterStarted?.Invoke();
         }
     }
 }

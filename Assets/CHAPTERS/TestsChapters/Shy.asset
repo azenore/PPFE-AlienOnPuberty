@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0357ddfcb993e42a8fbc0aff04b250, type: 3}
+  m_Name: Shy
+  m_EditorClassIdentifier: 
+  chapterTitle: 
+  background: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  defaultNextChapter: {fileID: 0}
+  nextPhoneChapter: {fileID: 0}
+  affinityRequirements: []
+  nodes:
+  - line:
+      speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+      isProtagonist: 0
+      speakerEmotion: 0
+      text: T'es une super amie
+      voiceClip: {fileID: 0}
+    isChoiceNode: 0
+    choices: []
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 0
+    backgroundOverride: {fileID: 0}

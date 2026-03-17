@@ -8,6 +8,7 @@ namespace VN.UI
     public class AvanceGame : MonoBehaviour
     {
         [SerializeField] private DialogueEngine engine;
+        [SerializeField] private ChapterManager chapterManager;
         [SerializeField] private Button advanceButton;
 
         private void OnEnable()
@@ -15,6 +16,7 @@ namespace VN.UI
             engine.OnChoiceReady += HandleChoiceReady;
             engine.OnLineReady += HandleLineReady;
             engine.OnChapterFinished += HandleChapterFinished;
+            chapterManager.OnPhoneChapterStarted += HandlePhoneChapterStarted;
         }
 
         private void OnDisable()
@@ -22,6 +24,7 @@ namespace VN.UI
             engine.OnChoiceReady -= HandleChoiceReady;
             engine.OnLineReady -= HandleLineReady;
             engine.OnChapterFinished -= HandleChapterFinished;
+            chapterManager.OnPhoneChapterStarted -= HandlePhoneChapterStarted;
         }
 
         /// <summary>Called by the advance button's OnClick event.</summary>
@@ -38,5 +41,8 @@ namespace VN.UI
 
         private void HandleChapterFinished(DialogueChapter _)
             => advanceButton.interactable = true;
+
+        private void HandlePhoneChapterStarted()
+            => advanceButton.interactable = false;
     }
 }

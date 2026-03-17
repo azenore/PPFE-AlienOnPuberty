@@ -42,5 +42,5 @@ MonoBehaviour:
         choices: []
       nextPhoneChapter: {fileID: 0}
       nextChapter: {fileID: 0}
-  defaultNextChapter: {fileID: 0}
+  defaultNextChapter: {fileID: 11400000, guid: 98f569327b5e15740905a3be3db24963, type: 2}
   defaultNextPhoneChapter: {fileID: 0}

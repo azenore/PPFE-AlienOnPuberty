@@ -5901,6 +5901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   engine: {fileID: 1127219341}
+  chapterManager: {fileID: 1127219363}
   advanceButton: {fileID: 229474155}
 --- !u!114 &1127219341 stripped
 MonoBehaviour:
@@ -5987,6 +5988,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df84faa0785af8148b765fbda5c7b25d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1127219363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3576034158760393810, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
+  m_PrefabInstance: {fileID: 1737811277666419171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537376889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ebe78ef297d204697d7fe182959812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1161330680
@@ -10677,6 +10689,10 @@ PrefabInstance:
       propertyPath: characterNameText
       value: 
       objectReference: {fileID: 287481723}
+    - target: {fileID: 677018273919196186, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
+      propertyPath: gameSaveController
+      value: 
+      objectReference: {fileID: 1127219361}
     - target: {fileID: 760667292212404552, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
       propertyPath: sfxSlider
       value: 
@@ -10749,6 +10765,10 @@ PrefabInstance:
       propertyPath: phoneEngine
       value: 
       objectReference: {fileID: 1127219354}
+    - target: {fileID: 3576034158760393810, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
+      propertyPath: protagonist
+      value: 
+      objectReference: {fileID: 11400000, guid: b7f2025a9a5387545870a7274bcf3897, type: 2}
     - target: {fileID: 3576034158760393810, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
       propertyPath: phoneChatController
       value: 

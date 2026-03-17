@@ -19,13 +19,18 @@ MonoBehaviour:
   messages:
   - sender: {fileID: 0}
     text: hihi je suis [NAME] je suis trop uwu
+    choices: []
   - sender: {fileID: 11400000, guid: e540e76a904336f4c818ad37d6a70cdc, type: 2}
     text: "T'es grave cringe sa m\xE8re"
+    choices: []
   - sender: {fileID: 0}
     text: Wesh trop pas UWU
+    choices: []
   - sender: {fileID: 11400000, guid: e540e76a904336f4c818ad37d6a70cdc, type: 2}
     text: Tu fais quoi ?
+    choices: []
   - sender: {fileID: 0}
     text: Un long message MDR
-  defaultNextChapter: {fileID: 0}
+    choices: []
+  defaultNextChapter: {fileID: 11400000, guid: 98f569327b5e15740905a3be3db24963, type: 2}
   defaultNextPhoneChapter: {fileID: 0}

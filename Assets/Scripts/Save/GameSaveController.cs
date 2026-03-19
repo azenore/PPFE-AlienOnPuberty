@@ -79,6 +79,7 @@ namespace VN.Runtime
             ProtagonistData.hairId = protagonistDataAsset.hairId;
             ProtagonistData.eyeId = protagonistDataAsset.eyeId;
             ProtagonistData.ResetAffinities();
+            protagonistDataAsset.ResetAffinities();
         }
 
         /// <summary>Builds a SaveData snapshot from current game state and writes it to disk.</summary>

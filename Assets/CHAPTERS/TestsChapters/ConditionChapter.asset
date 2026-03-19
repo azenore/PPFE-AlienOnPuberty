@@ -20,11 +20,11 @@ MonoBehaviour:
   affinityRequirements:
   - character: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
     minimumAffinity: 10
-    fallbackChapter: {fileID: 11400000, guid: ce3a8919278a88f45af4a33b987bd996, type: 2}
+    unlockedChapter: {fileID: 11400000, guid: ce3a8919278a88f45af4a33b987bd996, type: 2}
   nodes:
   - line:
       speaker: {fileID: 0}
-      isProtagonist: 0
+      isProtagonist: 1
       speakerEmotion: 0
       text: "Merci pour tout je suis heureuse de te conna\xEEtre"
       voiceClip: {fileID: 0}

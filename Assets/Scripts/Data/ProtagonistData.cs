@@ -74,12 +74,13 @@ namespace VN.Data
             affinities.Add(new AffinityEntry { character = character, value = clamped });
             OnAffinityChanged?.Invoke(character, clamped);
         }
-
-        /// <summary>Clears all affinity entries. Used before restoring from a save.</summary>
         public void ResetAffinities()
         {
+            foreach (var entry in affinities)
+                OnAffinityChanged?.Invoke(entry.character, 0);
             affinities.Clear();
         }
+
 
         /// <summary>Adds delta to affinity, clamped between 0 and 100.</summary>
         public void ModifyAffinity(CharacterData character, int delta)

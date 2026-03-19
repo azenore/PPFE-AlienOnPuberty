@@ -23,7 +23,7 @@ MonoBehaviour:
       speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
       isProtagonist: 0
       speakerEmotion: 0
-      text: Je veux t'avouer un truc <3
+      text: Je t'aime ma vida loca
       voiceClip: {fileID: 0}
     isChoiceNode: 0
     choices: []

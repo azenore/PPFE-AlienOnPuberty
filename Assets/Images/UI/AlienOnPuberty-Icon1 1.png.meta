@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: efa020279c0794e4bac16b209efea155
+guid: c1fe0ac0e2bd121488695deb9ad58103
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4698402177672548867
-    second: AlienOnPuberty-Icon1_0
+      213: -9194315617622447418
+    second: AlienOnPuberty-Icon1 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AlienOnPuberty-Icon1_0
+      name: AlienOnPuberty-Icon1 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dfde7e3dc1cebceb0800000000000000
-      internalID: -4698402177672548867
+      spriteID: 6caa9cac8aa376080800000000000000
+      internalID: -9194315617622447418
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AlienOnPuberty-Icon1_0: -4698402177672548867
+      AlienOnPuberty-Icon1 1_0: -9194315617622447418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

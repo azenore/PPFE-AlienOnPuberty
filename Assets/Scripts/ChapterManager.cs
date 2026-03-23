@@ -20,6 +20,7 @@ namespace VN.Runtime
 
         private DialogueChapter _currentChapter;
         private PhoneChapter _currentPhoneChapter;
+        private DialogueChapter _pendingChapterAfterPhone;
         private bool _inPhoneChapter;
 
         /// <summary>Asset name of the active dialogue chapter. Used when building a save snapshot.</summary>
@@ -33,6 +34,9 @@ namespace VN.Runtime
 
         /// <summary>Fired when a phone chapter starts.</summary>
         public event Action OnPhoneChapterStarted;
+
+        /// <summary>Fired when a phone chapter ends. LoadChapter is deferred until OnPhoneExitComplete is called.</summary>
+        public event Action OnPhoneChapterEnded;
 
         private void Start()
         {
@@ -133,6 +137,17 @@ namespace VN.Runtime
             OnPhoneChapterStarted?.Invoke();
         }
 
+        /// <summary>
+        /// Called by PhoneChapterUIController once the exit slide animation is complete.
+        /// Loads the pending dialogue chapter.
+        /// </summary>
+        public void OnPhoneExitAnimationComplete()
+        {
+            var chapter = _pendingChapterAfterPhone;
+            _pendingChapterAfterPhone = null;
+            LoadChapter(chapter);
+        }
+
         private void HandleDialogueChapterFinished(DialogueChapter nextFromChoice)
         {
             if (nextFromChoice != null)
@@ -160,7 +175,11 @@ namespace VN.Runtime
         private void HandlePhoneConversationFinished(DialogueChapter next)
         {
             _inPhoneChapter = false;
-            LoadChapter(next);
+            _pendingChapterAfterPhone = next;
+
+            // LoadChapter est différé — PhoneChapterUIController l'appellera
+            // via OnPhoneExitAnimationComplete() après le slide de sortie.
+            OnPhoneChapterEnded?.Invoke();
         }
 
         private void HandleNextPhoneChapter(PhoneChapter next)

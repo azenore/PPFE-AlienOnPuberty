@@ -80,68 +80,6 @@ namespace VN.UI
             StartCoroutine(ScrollToBottomImmediate());
         }
 
-        /// <summary>Hides the phone panel.</summary>
-        public void CloseChat()
-        {
-            phonePanel.SetActive(false);
-        }
-
-        private void HandleMessageReady(PhoneMessage message)
-        {
-            advanceButton.gameObject.SetActive(true);
-
-            MessageBubbleView bubble = Instantiate(bubblePrefab, messagesContainer);
-            bubble.Setup(message, protagonist.playerName);
-            _bubbles.Add(bubble);
-
-            StartCoroutine(ScrollToBottom());
-        }
-
-        private void HandleChoiceReady(List<PhoneChoice> _)
-        {
-            advanceButton.gameObject.SetActive(false);
-        }
-
-        // Scroll après animation pour les nouveaux messages
-        private IEnumerator ScrollToBottom()
-        {
-            yield return new WaitForSeconds(BubbleAnimDuration);
-            yield return null;
-
-            Canvas.ForceUpdateCanvases();
-            LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.content);
-            scrollRect.verticalNormalizedPosition = 0f;
-        }
-
-        // Scroll immédiat après replay (pas d'animation donc 2 frames suffisent)
-        private IEnumerator ScrollToBottomImmediate()
-        {
-            yield return null;
-            yield return null;
-
-            Canvas.ForceUpdateCanvases();
-            LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.content);
-            scrollRect.verticalNormalizedPosition = 0f;
-        }
-
-        private void HandleConversationFinished(DialogueChapter next)
-        {
-            CloseChat();
-        }
-
-        private void HandlePhoneChapterFinished(PhoneChapter next)
-        {
-            ClearBubbles();
-            phoneEngine.LoadPhoneChapter(next);
-        }
-
-        private void ClearBubbles()
-        {
-            foreach (var bubble in _bubbles)
-                Destroy(bubble.gameObject);
-            _bubbles.Clear();
-        }
-
         /// <summary>
         /// Shows the phone panel, replays all messages up to choiceMessageIndex inclusive,
         /// then appends the chosen option as a protagonist bubble.
@@ -163,7 +101,6 @@ namespace VN.UI
                 _bubbles.Add(bubble);
             }
 
-            // Affiche le choix sélectionné comme bulle protagoniste
             List<PhoneChoice> choices = chapter.messages[clampedIndex].choices;
             if (choiceIndex >= 0 && choiceIndex < choices.Count)
             {
@@ -184,5 +121,67 @@ namespace VN.UI
             StartCoroutine(ScrollToBottomImmediate());
         }
 
+        /// <summary>Hides the phone panel and clears bubbles. Called by ChapterManager after the exit animation.</summary>
+        public void CloseChat()
+        {
+            ClearBubbles();
+            phonePanel.SetActive(false);
+        }
+
+        private void HandleMessageReady(PhoneMessage message)
+        {
+            advanceButton.gameObject.SetActive(true);
+
+            MessageBubbleView bubble = Instantiate(bubblePrefab, messagesContainer);
+            bubble.Setup(message, protagonist.playerName);
+            _bubbles.Add(bubble);
+
+            StartCoroutine(ScrollToBottom());
+        }
+
+        private void HandleChoiceReady(List<PhoneChoice> _)
+        {
+            advanceButton.gameObject.SetActive(false);
+        }
+
+        private void HandleConversationFinished(DialogueChapter next)
+        {
+            // La désactivation du panel est gérée par PhoneChapterUIController
+            // via le slide d'animation — on ne touche plus au panel ici.
+            advanceButton.gameObject.SetActive(false);
+        }
+
+        private void HandlePhoneChapterFinished(PhoneChapter next)
+        {
+            ClearBubbles();
+            phoneEngine.LoadPhoneChapter(next);
+        }
+
+        private IEnumerator ScrollToBottom()
+        {
+            yield return new WaitForSeconds(BubbleAnimDuration);
+            yield return null;
+
+            Canvas.ForceUpdateCanvases();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.content);
+            scrollRect.verticalNormalizedPosition = 0f;
+        }
+
+        private IEnumerator ScrollToBottomImmediate()
+        {
+            yield return null;
+            yield return null;
+
+            Canvas.ForceUpdateCanvases();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.content);
+            scrollRect.verticalNormalizedPosition = 0f;
+        }
+
+        private void ClearBubbles()
+        {
+            foreach (var bubble in _bubbles)
+                Destroy(bubble.gameObject);
+            _bubbles.Clear();
+        }
     }
 }

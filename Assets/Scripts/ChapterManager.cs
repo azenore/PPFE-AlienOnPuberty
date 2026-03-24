@@ -175,12 +175,12 @@ namespace VN.Runtime
         private void HandlePhoneConversationFinished(DialogueChapter next)
         {
             _inPhoneChapter = false;
+            _currentPhoneChapter = null; // <-- AJOUTER cette ligne
             _pendingChapterAfterPhone = next;
 
-            // LoadChapter est différé — PhoneChapterUIController l'appellera
-            // via OnPhoneExitAnimationComplete() après le slide de sortie.
             OnPhoneChapterEnded?.Invoke();
         }
+
 
         private void HandleNextPhoneChapter(PhoneChapter next)
         {

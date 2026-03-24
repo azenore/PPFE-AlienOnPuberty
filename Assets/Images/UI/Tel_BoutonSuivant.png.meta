@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 309e76e30d3a0cd42ac201532ad5702b
+guid: 58f34177c98b96542b4fe960482022b1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1312338753904604586
-    second: Tel_Ext_0
+      213: -251435253009471658
+    second: Tel_BoutonSuivant_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tel_Ext_0
+      name: Tel_BoutonSuivant_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 308
-        height: 517
+        width: 168
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa57673c42d563210800000000000000
-      internalID: 1312338753904604586
+      spriteID: 6572c5438f8b28cf0800000000000000
+      internalID: -251435253009471658
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tel_Ext_0: 1312338753904604586
+      Tel_BoutonSuivant_0: -251435253009471658
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

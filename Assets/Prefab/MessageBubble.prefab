@@ -136,7 +136,7 @@ MonoBehaviour:
   bubbleBackground: {fileID: 105710351298871695}
   inner: {fileID: 103327712677559701}
   maxBubbleWidth: 320
-  protagonistColor: {r: 0.33, g: 0.64, b: 1, a: 1}
+  protagonistColor: {r: 0.8584906, g: 0.6114721, b: 0.7229317, a: 1}
   characterColor: {r: 0.92, g: 0.92, b: 0.92, a: 1}
   protagonistTextColor: {r: 1, g: 1, b: 1, a: 1}
   characterTextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -453,8 +453,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -25.645}
-  m_SizeDelta: {x: 1920, y: 0}
+  m_AnchoredPosition: {x: 449, y: -25.645}
+  m_SizeDelta: {x: 898, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &105710351298871695
 MonoBehaviour:

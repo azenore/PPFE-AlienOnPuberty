@@ -70,6 +70,7 @@ namespace VN.Runtime
             SaveGame();
         }
 
+
         /// <summary>Applies customization choices from the asset to the runtime copy before starting a new game.</summary>
         public void ApplyCustomization()
         {

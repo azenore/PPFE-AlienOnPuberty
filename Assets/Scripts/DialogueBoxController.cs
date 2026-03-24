@@ -69,7 +69,9 @@ namespace VN.UI
         private void OnChoiceReady(List<DialogueChoice> _)
         {
             dialogueBox.SetActive(true);
+            dialogueText.text = string.Empty;
         }
+
 
         private void UpdateProtagonistEmotion(EmotionType emotion)
         {

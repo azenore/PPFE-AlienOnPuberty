@@ -24,7 +24,7 @@ MonoBehaviour:
   - sender: {fileID: 0}
     text: Je te baise Isaac
     choices:
-    - label: jE RIGOLE
+    - label: Je rigole
       affinityTarget: {fileID: 0}
       affinityDelta: 0
       followUpMessages:

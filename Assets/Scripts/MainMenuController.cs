@@ -95,9 +95,17 @@ namespace VN.UI
             mainMenuPanel.SetActive(false);
             gamePanel.SetActive(true);
             affinityBarPanel.SetActive(true);
-            gameSaveController.LoadGame();
+
+            if (!gameSaveController.LoadGame())
+            {
+                Debug.LogError("[MainMenu] Échec du chargement — retour au menu principal.");
+                ShowMainMenu();
+                return;
+            }
+
             affinityBarView.ForceRefresh();
         }
+
 
         /// <summary>Called by OptionsButton OnClick.</summary>
         public void OnOptions()

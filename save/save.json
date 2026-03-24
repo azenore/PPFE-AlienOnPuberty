@@ -8,10 +8,17 @@
     "eyeColorR": 0.10457456111907959,
     "eyeColorG": 0.32956358790397646,
     "eyeColorB": 0.8867924213409424,
+    "hairId": "brun",
+    "eyeId": "bleu",
     "currentChapterName": "Loveu",
     "currentLineIndex": 0,
     "lastCharacterOnScreenName": "CH_Romy",
     "currentPhoneChapterName": "",
     "currentPhoneMessageIndex": 0,
-    "affinities": []
+    "affinities": [
+        {
+            "characterName": "CH_Romy",
+            "value": 10
+        }
+    ]
 }

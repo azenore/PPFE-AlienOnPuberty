@@ -33,7 +33,7 @@ namespace VN.Runtime
 
         private void Awake()
         {
-            ProtagonistData = protagonistDataAsset.CreateRuntimeCopy();
+            ProtagonistData = protagonistDataAsset;
         }
 
         private void OnEnable()
@@ -95,6 +95,8 @@ namespace VN.Runtime
                 eyeColorR = ProtagonistData.eyeColor.r,
                 eyeColorG = ProtagonistData.eyeColor.g,
                 eyeColorB = ProtagonistData.eyeColor.b,
+                hairId = ProtagonistData.hairId, 
+                eyeId = ProtagonistData.eyeId,
                 currentChapterName = chapterManager.CurrentChapterName,
                 currentLineIndex = dialogueEngine.LastDisplayedIndex,
                 lastCharacterOnScreenName = dialogueEngine.CurrentCharacter?.name ?? string.Empty,
@@ -138,6 +140,13 @@ namespace VN.Runtime
             ProtagonistData.playerName = data.protagonistName;
             ProtagonistData.hairColor = new Color(data.hairColorR, data.hairColorG, data.hairColorB);
             ProtagonistData.eyeColor = new Color(data.eyeColorR, data.eyeColorG, data.eyeColorB);
+            ProtagonistData.hairId = data.hairId; 
+            ProtagonistData.eyeId = data.eyeId;
+
+            if (string.IsNullOrEmpty(ProtagonistData.hairId))
+                ProtagonistData.hairId = protagonistDataAsset.hairId;
+            if (string.IsNullOrEmpty(ProtagonistData.eyeId))
+                ProtagonistData.eyeId = protagonistDataAsset.eyeId;
 
             ProtagonistData.ResetAffinities();
             foreach (var entry in data.affinities)

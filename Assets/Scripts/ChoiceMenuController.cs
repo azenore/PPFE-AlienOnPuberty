@@ -30,7 +30,7 @@ namespace VN.UI
         }
 
         private void HandleLineReady(DialogueLine _) => HideChoices();
-        private void HandleChapterFinished(DialogueChapter _) => HideChoices();
+        private void HandleChapterFinished(BaseChapter _) => HideChoices();
 
         private void ShowChoices(List<DialogueChoice> choices)
         {

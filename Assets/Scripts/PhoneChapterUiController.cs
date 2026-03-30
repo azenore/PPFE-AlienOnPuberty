@@ -32,7 +32,7 @@ namespace VN.UI
         private Vector2 _offscreenPosition;
         private Coroutine _slideCoroutine;
 
-        private void Start()
+        private void Awake()
         {
             _restPosition = phonePanelRect.anchoredPosition;
             _offscreenPosition = new Vector2(_restPosition.x, _restPosition.y - slideDistance);
@@ -45,12 +45,14 @@ namespace VN.UI
         {
             chapterManager.OnPhoneChapterStarted += OnPhoneStarted;
             chapterManager.OnPhoneChapterEnded += OnPhoneEnded;
+            chapterManager.OnDialogueChapterLoaded += ResetToDialogueMode;
         }
 
         private void OnDisable()
         {
             chapterManager.OnPhoneChapterStarted -= OnPhoneStarted;
             chapterManager.OnPhoneChapterEnded -= OnPhoneEnded;
+            chapterManager.OnDialogueChapterLoaded -= ResetToDialogueMode;
         }
 
         private void OnPhoneStarted()
@@ -67,6 +69,13 @@ namespace VN.UI
             _slideCoroutine = StartCoroutine(SlideOut());
         }
 
+        private void ResetToDialogueMode()
+        {
+            if (_slideCoroutine != null) StopCoroutine(_slideCoroutine);
+            phonePanelRect.gameObject.SetActive(false);
+            SetDialogueUIVisible(true);
+        }
+
         private IEnumerator SlideIn()
         {
             phonePanelRect.anchoredPosition = _offscreenPosition;
@@ -76,7 +85,6 @@ namespace VN.UI
 
         private IEnumerator SlideOut()
         {
-            // Force le panel visible — il peut avoir été caché par un autre système
             phonePanelRect.gameObject.SetActive(true);
             phonePanelRect.anchoredPosition = _restPosition;
 
@@ -85,7 +93,6 @@ namespace VN.UI
             phonePanelRect.gameObject.SetActive(false);
             SetDialogueUIVisible(true);
 
-            // Charge le chapitre suivant uniquement une fois le slide terminé
             chapterManager.OnPhoneExitAnimationComplete();
         }
 

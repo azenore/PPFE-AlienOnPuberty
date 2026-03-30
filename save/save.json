@@ -2,23 +2,18 @@
     "currentPhoneChoiceMessageIndex": -1,
     "currentPhoneChoiceIndex": -1,
     "protagonistName": "Yuki",
-    "hairColorR": 0.9905660152435303,
-    "hairColorG": 0.8572373390197754,
-    "hairColorB": 0.3784709870815277,
+    "hairColorR": 0.33018869161605837,
+    "hairColorG": 0.15107691287994386,
+    "hairColorB": 0.15107691287994386,
     "eyeColorR": 0.10457456111907959,
     "eyeColorG": 0.32956358790397646,
     "eyeColorB": 0.8867924213409424,
-    "hairId": "blond",
+    "hairId": "brun",
     "eyeId": "bleu",
-    "currentChapterName": "ConditionChapter",
+    "currentChapterName": "Chapter_2",
     "currentLineIndex": 0,
-    "lastCharacterOnScreenName": "CH_Romy",
+    "lastCharacterOnScreenName": "",
     "currentPhoneChapterName": "",
     "currentPhoneMessageIndex": 0,
-    "affinities": [
-        {
-            "characterName": "CH_Romy",
-            "value": 0
-        }
-    ]
+    "affinities": []
 }

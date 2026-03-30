@@ -15,10 +15,11 @@ namespace VN.Runtime
 
         public event Action<DialogueLine> OnLineReady;
         public event Action<List<DialogueChoice>> OnChoiceReady;
-        public event Action<DialogueChapter> OnChapterFinished;
+        public event Action<BaseChapter> OnChapterFinished;
         public event Action<Sprite> OnBackgroundChanged;
         public event Action<CharacterData, EmotionType> OnCharacterOnScreenChanged;
         public event Action<EmotionType> OnProtagonistEmotionChanged;
+        public event Action<bool> OnMonologueStateChanged;
 
         /// <summary>Index of the last displayed node. Use this for saving.</summary>
         public int LastDisplayedIndex => Mathf.Max(0, _currentIndex - 1);
@@ -26,20 +27,17 @@ namespace VN.Runtime
         /// <summary>Last character displayed on screen. Used to restore UI state after Continue.</summary>
         public CharacterData CurrentCharacter { get; private set; }
 
+        /// <summary>Whether the current node is a monologue.</summary>
+        public bool IsMonologue { get; private set; }
+
         /// <summary>Loads a chapter and starts from the first node.</summary>
-        public void LoadChapter(DialogueChapter chapter)
-        {
-            LoadChapterAtLine(chapter, 0);
-        }
+        public void LoadChapter(DialogueChapter chapter) => LoadChapterAtLine(chapter, 0);
 
         /// <summary>Loads a chapter and resumes at a specific node index.</summary>
         public void LoadChapterAtLine(DialogueChapter chapter, int startIndex)
         {
             _nodes = chapter.nodes;
-
-            // Clamp à un index toujours valide — évite de déclencher OnChapterFinished au restore
-            int clampedIndex = Mathf.Clamp(startIndex, 0, Mathf.Max(0, _nodes.Count - 1));
-            _currentIndex = clampedIndex;
+            _currentIndex = Mathf.Clamp(startIndex, 0, Mathf.Max(0, _nodes.Count - 1));
             _waitingForChoice = false;
 
             if (chapter.background != null)
@@ -52,10 +50,7 @@ namespace VN.Runtime
         /// Restores the last visible character without firing events.
         /// Must be called before LoadChapterAtLine when loading a save.
         /// </summary>
-        public void RestoreCharacter(CharacterData character)
-        {
-            CurrentCharacter = character;
-        }
+        public void RestoreCharacter(CharacterData character) => CurrentCharacter = character;
 
         /// <summary>Advances to the next node. Call this on player input.</summary>
         public void Advance()
@@ -77,6 +72,7 @@ namespace VN.Runtime
         {
             if (index >= _nodes.Count)
             {
+                SetMonologue(false);
                 OnChapterFinished?.Invoke(null);
                 return;
             }
@@ -87,30 +83,48 @@ namespace VN.Runtime
             if (node.backgroundOverride != null)
                 OnBackgroundChanged?.Invoke(node.backgroundOverride);
 
-            if (node.characterOnScreen != null)
+            SetMonologue(node.isMonologue);
+
+            if (!node.isMonologue)
             {
-                // Le nœud définit explicitement un nouveau personnage
-                CurrentCharacter = node.characterOnScreen;
-                OnCharacterOnScreenChanged?.Invoke(node.characterOnScreen, node.characterOnScreenEmotion);
-            }
-            else if (CurrentCharacter != null)
-            {
-                // Le personnage persiste depuis un nœud précédent — notifie quand même l'UI pour le restore
-                OnCharacterOnScreenChanged?.Invoke(CurrentCharacter, EmotionType.Neutral);
+                if (node.characterOnScreen != null)
+                {
+                    CurrentCharacter = node.characterOnScreen;
+                    OnCharacterOnScreenChanged?.Invoke(node.characterOnScreen, node.characterOnScreenEmotion);
+                }
+                else if (CurrentCharacter != null)
+                {
+                    OnCharacterOnScreenChanged?.Invoke(CurrentCharacter, EmotionType.Neutral);
+                }
             }
 
             if (node.overrideProtagonistEmotion)
                 OnProtagonistEmotionChanged?.Invoke(node.protagonistEmotion);
 
-            if (node.isChoiceNode)
+            if (node.IsChoiceNode)
             {
                 _waitingForChoice = true;
                 OnChoiceReady?.Invoke(node.choices);
             }
             else
             {
-                OnLineReady?.Invoke(node.line);
+                OnLineReady?.Invoke(new DialogueLine
+                {
+                    speaker = node.speaker,
+                    isProtagonist = node.speaker == null,
+                    text = node.text,
+                    voiceClip = node.voiceClip
+                });
+
+
             }
+        }
+
+        private void SetMonologue(bool monologue)
+        {
+            if (IsMonologue == monologue) return;
+            IsMonologue = monologue;
+            OnMonologueStateChanged?.Invoke(monologue);
         }
     }
 }

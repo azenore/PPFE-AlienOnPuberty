@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b84f2b392d3fe4baa1a996e346da38, type: 3}
+  m_Name: Chapter_3_P
+  m_EditorClassIdentifier: 
+  groupName: 
+  participants:
+  - {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+  messages:
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: "Coucou ma ch\xE9rie, vous \xEAtes bien arriv\xE9es \xE0 l\u2019appartement
+      ?"
+    choices: []
+  - sender: {fileID: 0}
+    text: 'Oui, on vient de monter le dernier carton !
+
+'
+    choices: []
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: "Tu m\u2019enverras des photos? tu vas nous manquer maintenant que tu es
+      loin.\r\n"
+    choices: []
+  - sender: {fileID: 0}
+    text: Toi et maman aussi.
+    choices: []
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: "Rien d\u2019autre \xE0 signaler sur la plan\xE8te [NAME] ?"
+    choices: []
+  - sender: {fileID: 0}
+    text: "Un peu stress\xE9e pour la rentr\xE9e, \xE7a me fait mal ahah"
+    choices: []
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: Mal comment ?
+    choices: []
+  - sender: {fileID: 0}
+    text: "La gorge serr\xE9e, un petit mal au ventre et le bouts de mes oreilles
+      qui me d\xE9mange"
+    choices: []
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: "J\u2019y crois pas !! C'est le grand moment ! "
+    choices: []
+  - sender: {fileID: 0}
+    text: De quoi tu parles, papa ?
+    choices: []
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: "Ta pubert\xE9, ma ch\xE9rie."
+    choices: []
+  - sender: {fileID: 0}
+    text: "Alors\u2026 j\u2019ai 20 ans, papa, \xE7a fait quelques ann\xE9es que
+      je l\u2019ai faite, ma pubert\xE9."
+    choices: []
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: "Oui, \xE9videmment, ta pubert\xE9 humaine\u2026 mais pas ta pubert\xE9
+      alien !"
+    choices: []
+  - sender: {fileID: 0}
+    text: Ma quoi ????
+    choices: []
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: " Tous les aliens passent par l\xE0 au d\xE9but de la vingtaine. C\u2019est
+      normal."
+    choices: []
+  - sender: {fileID: 0}
+    text: " Comment \xE7a NORMAL ?!"
+    choices: []
+  - sender: {fileID: 0}
+    text: "Et comment \xE7a se fait que j\u2019apprenne \xE7a maintenant ??"
+    choices: []
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: "J\u2019ai d\xFB oublier de t\u2019en parler."
+    choices: []
+  - sender: {fileID: 0}
+    text: "OUBLI\xC9 ??? Comment tu peux oublier un truc pareil ??"
+    choices: []
+  - sender: {fileID: 0}
+    text: "Mais il va m\u2019arriver quoi ?"
+    choices: []
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: "Difficile \xE0 dire\u2026 tu n\u2019es qu\u2019\xE0 moiti\xE9 alien."
+    choices: []
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: Ton corps risque de changer...
+    choices: []
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: "Le plus important : \xE9vite les \xE9motions trop fortes ou les situations
+      inhabituelles. Essaye de vivre normalement"
+    choices: []
+  - sender: {fileID: 11400000, guid: d54f23729925ed6408814ee6c8bc4372, type: 2}
+    text: Il faut que je te laisse j'ai du travail.
+    choices: []
+  - sender: {fileID: 0}
+    text: "Facile \xE0 dire..."
+    choices: []
+  - sender: {fileID: 0}
+    text: Me laisse pas seule !!
+    choices: []
+  - sender: {fileID: 0}
+    text: ...
+    choices: []
+  - sender: {fileID: 0}
+    text: Papa ?
+    choices: []
+  - sender: {fileID: 0}
+    text: C'est pas une blague hein ?
+    choices: []
+  defaultNextChapter: {fileID: 0}
+  defaultNextPhoneChapter: {fileID: 0}

@@ -136,6 +136,7 @@ namespace VN.UI
         {
             customizationPanel.SetActive(false);
             gamePanel.SetActive(true);
+            affinityBarPanel.SetActive(true);
         }
     }
 }

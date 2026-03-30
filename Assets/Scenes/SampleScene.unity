@@ -7244,7 +7244,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 13b8e8d73a009004990be2e0182fa49d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ea814f014f8c0240a1e0f641b6f5a04, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7276,6 +7276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   engine: {fileID: 1127219341}
   characterSpriteImage: {fileID: 1813976202}
+  affinityBarPanel: {fileID: 1927082826}
 --- !u!1 &1823348014
 GameObject:
   m_ObjectHideFlags: 0
@@ -9248,8 +9249,16 @@ PrefabInstance:
       objectReference: {fileID: 1127219354}
     - target: {fileID: 3519692562806001224, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
       propertyPath: allChapters.Array.size
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3519692562806001224, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
+      propertyPath: 'allChapters.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 89a0a30543a80ae468be087a4baa1073, type: 2}
+    - target: {fileID: 3519692562806001224, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
+      propertyPath: 'allChapters.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3174db22f8a60ba44a153248deb858a0, type: 2}
     - target: {fileID: 3519692562806001224, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
       propertyPath: 'allChapters.Array.data[3]'
       value: 
@@ -9264,12 +9273,12 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 2a3ffc9f17a858b4e9eb6b74d1f1ab88, type: 2}
     - target: {fileID: 3519692562806001224, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
       propertyPath: allPhoneChapters.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3519692562806001224, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
       propertyPath: 'allPhoneChapters.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 0621abbfe90313345b937a1496b2f9cf, type: 2}
+      objectReference: {fileID: 11400000, guid: 3cc50fe353ebb9c499912ded0a3c0c2f, type: 2}
     - target: {fileID: 3519692562806001224, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
       propertyPath: 'allPhoneChapters.Array.data[1]'
       value: 
@@ -9286,6 +9295,10 @@ PrefabInstance:
       propertyPath: protagonist
       value: 
       objectReference: {fileID: 11400000, guid: b7f2025a9a5387545870a7274bcf3897, type: 2}
+    - target: {fileID: 3576034158760393810, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
+      propertyPath: startingChapter
+      value: 
+      objectReference: {fileID: 11400000, guid: 3174db22f8a60ba44a153248deb858a0, type: 2}
     - target: {fileID: 3576034158760393810, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
       propertyPath: phoneChatController
       value: 

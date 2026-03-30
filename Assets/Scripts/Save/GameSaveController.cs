@@ -225,7 +225,7 @@ namespace VN.Runtime
                 foreach (var node in chapter.nodes)
                 {
                     RegisterCharacter(node.characterOnScreen);
-                    RegisterCharacter(node.line?.speaker);
+                    RegisterCharacter(node.speaker);
                 }
         }
 

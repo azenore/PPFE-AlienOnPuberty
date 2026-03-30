@@ -32,16 +32,14 @@ namespace VN.UI
         {
             phoneEngine.OnMessageReady += HandleMessageReady;
             phoneEngine.OnChoiceReady += HandleChoiceReady;
-            phoneEngine.OnConversationFinished += HandleConversationFinished;
-            phoneEngine.OnPhoneChapterFinished += HandlePhoneChapterFinished;
+            phoneEngine.OnChapterFinished += HandleChapterFinished;
         }
 
         private void OnDisable()
         {
             phoneEngine.OnMessageReady -= HandleMessageReady;
             phoneEngine.OnChoiceReady -= HandleChoiceReady;
-            phoneEngine.OnConversationFinished -= HandleConversationFinished;
-            phoneEngine.OnPhoneChapterFinished -= HandlePhoneChapterFinished;
+            phoneEngine.OnChapterFinished -= HandleChapterFinished;
         }
 
         /// <summary>Shows the phone panel, clears previous messages and updates the header.</summary>
@@ -65,6 +63,9 @@ namespace VN.UI
             if (participantsText != null)
                 participantsText.text = chapter.GetHeaderLabel();
 
+            // Activer le panel AVANT d'instancier les bulles pour que Awake() s'exécute correctement.
+            phonePanel.SetActive(true);
+
             int clampedIndex = Mathf.Clamp(upToIndex, 0, chapter.messages.Count - 1);
 
             for (int i = 0; i <= clampedIndex; i++)
@@ -75,8 +76,6 @@ namespace VN.UI
             }
 
             advanceButton.gameObject.SetActive(true);
-            phonePanel.SetActive(true);
-
             StartCoroutine(ScrollToBottomImmediate());
         }
 
@@ -91,6 +90,9 @@ namespace VN.UI
 
             if (participantsText != null)
                 participantsText.text = chapter.GetHeaderLabel();
+
+            // Activer le panel AVANT d'instancier les bulles pour que Awake() s'exécute correctement.
+            phonePanel.SetActive(true);
 
             int clampedIndex = Mathf.Clamp(choiceMessageIndex, 0, chapter.messages.Count - 1);
 
@@ -116,8 +118,6 @@ namespace VN.UI
             }
 
             advanceButton.gameObject.SetActive(true);
-            phonePanel.SetActive(true);
-
             StartCoroutine(ScrollToBottomImmediate());
         }
 
@@ -144,18 +144,7 @@ namespace VN.UI
             advanceButton.gameObject.SetActive(false);
         }
 
-        private void HandleConversationFinished(DialogueChapter next)
-        {
-            // La désactivation du panel est gérée par PhoneChapterUIController
-            // via le slide d'animation — on ne touche plus au panel ici.
-            advanceButton.gameObject.SetActive(false);
-        }
-
-        private void HandlePhoneChapterFinished(PhoneChapter next)
-        {
-            ClearBubbles();
-            phoneEngine.LoadPhoneChapter(next);
-        }
+        private void HandleChapterFinished(BaseChapter _) { }
 
         private IEnumerator ScrollToBottom()
         {

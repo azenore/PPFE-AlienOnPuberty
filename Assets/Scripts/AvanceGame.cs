@@ -28,10 +28,7 @@ namespace VN.UI
         }
 
         /// <summary>Called by the advance button's OnClick event.</summary>
-        public void Advance()
-        {
-            engine.Advance();
-        }
+        public void Advance() => engine.Advance();
 
         private void HandleChoiceReady(System.Collections.Generic.List<DialogueChoice> _)
             => advanceButton.interactable = false;
@@ -39,7 +36,7 @@ namespace VN.UI
         private void HandleLineReady(DialogueLine _)
             => advanceButton.interactable = true;
 
-        private void HandleChapterFinished(DialogueChapter _)
+        private void HandleChapterFinished(BaseChapter _)
             => advanceButton.interactable = true;
 
         private void HandlePhoneChapterStarted()

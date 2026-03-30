@@ -18,10 +18,7 @@ namespace VN.Data
         [Tooltip("Messages révélés après ce choix, dans l'ordre.")]
         public List<PhoneMessage> followUpMessages = new();
 
-        [Tooltip("Chapitre téléphone chargé après les follow-ups. Prioritaire sur nextChapter.")]
-        public PhoneChapter nextPhoneChapter;
-
-        [Tooltip("Chapitre dialogue chargé après les follow-ups.")]
-        public DialogueChapter nextChapter;
+        [Tooltip("Chapitre suivant après les follow-ups (dialogue ou téléphone).")]
+        public BaseChapter nextChapter;
     }
 }

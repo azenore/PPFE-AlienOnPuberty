@@ -1,7 +1,7 @@
 {
     "currentPhoneChoiceMessageIndex": -1,
     "currentPhoneChoiceIndex": -1,
-    "protagonistName": "Yuki",
+    "protagonistName": "Mako",
     "hairColorR": 0.33018869161605837,
     "hairColorG": 0.15107691287994386,
     "hairColorB": 0.15107691287994386,
@@ -13,7 +13,7 @@
     "currentChapterName": "Chapter_2",
     "currentLineIndex": 0,
     "lastCharacterOnScreenName": "",
-    "currentPhoneChapterName": "",
-    "currentPhoneMessageIndex": 0,
+    "currentPhoneChapterName": "Chapter_3_P",
+    "currentPhoneMessageIndex": 12,
     "affinities": []
 }

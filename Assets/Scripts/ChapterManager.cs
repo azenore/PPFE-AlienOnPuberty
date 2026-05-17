@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 using VN.Data;
 
 namespace VN.Runtime
@@ -17,6 +18,7 @@ namespace VN.Runtime
         [Header("UI")]
         [SerializeField] private VN.UI.PhoneChatController phoneChatController;
         [SerializeField] private GameObject gamePanel;
+        [SerializeField] private Image backgroundImage;
 
         private DialogueChapter _currentChapter;
         private PhoneChapter _currentPhoneChapter;
@@ -41,15 +43,17 @@ namespace VN.Runtime
         /// <summary>Fired when a dialogue chapter is loaded. Allows UI to restore dialogue elements hidden during a phone chapter.</summary>
         public event Action OnDialogueChapterLoaded;
 
-        private void Start()
+        private void Awake()
         {
             engine.OnChapterFinished += HandleDialogueChapterFinished;
+            engine.OnBackgroundChanged += HandleBackgroundChanged;
             phoneEngine.OnChapterFinished += HandlePhoneChapterFinished;
         }
 
         private void OnDestroy()
         {
             engine.OnChapterFinished -= HandleDialogueChapterFinished;
+            engine.OnBackgroundChanged -= HandleBackgroundChanged;
             phoneEngine.OnChapterFinished -= HandlePhoneChapterFinished;
         }
 
@@ -145,6 +149,12 @@ namespace VN.Runtime
             _currentPhoneChapter = null;
             _pendingChapterAfterPhone = next;
             OnPhoneChapterEnded?.Invoke();
+        }
+
+        private void HandleBackgroundChanged(Sprite sprite)
+        {
+            if (backgroundImage != null)
+                backgroundImage.sprite = sprite;
         }
 
         private void LoadNextChapter(BaseChapter next)

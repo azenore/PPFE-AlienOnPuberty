@@ -13,11 +13,81 @@ MonoBehaviour:
   m_Name: Chapter_2
   m_EditorClassIdentifier: 
   chapterTitle: "D\xE9m\xE9nagement"
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 0ec333ae0b4005e4287738099a075175, type: 3}
   backgroundMusic: {fileID: 0}
   nodes:
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: Et c'est fini ! Officiellement chez nous.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
-    text: Coucou
+    text: Je meurs de faim, pas toi ?
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: "J'avoue que je ne dirais pas non \xE0 un bon tacos."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "On a ramen\xE9 de la nourriture de chez ta m\xE8re ?"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: "Euh\u2026 laisse-moi regarder ce qu'elle nous a laiss\xE9."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Linh fouille dans le grand sac de cong\xE9lation pos\xE9 sur le comptoir.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: Tadaa !
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Linh brandit du sac deux wraps entour\xE9s de film plastique.)"
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 0}
@@ -25,6 +95,37 @@ MonoBehaviour:
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: C'est vraiment la meilleure.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Nous nous installons autour de notre petite table pour manger. Je crois
+      que les cartons, ce sera pour plus tard.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "Oh, j'ai re\xE7u un SMS !"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
     backgroundOverride: {fileID: 0}
   transition:
     nextChapter: {fileID: 11400000, guid: 3cc50fe353ebb9c499912ded0a3c0c2f, type: 2}

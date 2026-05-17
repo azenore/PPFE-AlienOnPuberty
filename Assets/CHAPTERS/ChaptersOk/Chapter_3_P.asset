@@ -112,5 +112,5 @@ MonoBehaviour:
   - sender: {fileID: 0}
     text: C'est pas une blague hein ?
     choices: []
-  defaultNextChapter: {fileID: 0}
-  defaultNextPhoneChapter: {fileID: 0}
+  transition:
+    nextChapter: {fileID: 11400000, guid: 0624c53d73ddad446963088037a7a2bb, type: 2}

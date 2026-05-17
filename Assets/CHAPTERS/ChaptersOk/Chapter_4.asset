@@ -1,0 +1,262 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0357ddfcb993e42a8fbc0aff04b250, type: 3}
+  m_Name: Chapter_4
+  m_EditorClassIdentifier: 
+  chapterTitle: "Pubert\xE9 alien"
+  background: {fileID: 21300000, guid: 0ec333ae0b4005e4287738099a075175, type: 3}
+  backgroundMusic: {fileID: 0}
+  nodes:
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: "Oula, \xE7a va ? Tu fais une de ces t\xEAtes\u2026"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Je crois que je n'ai pas su cacher ma surprise.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "Je\u2026 Apparemment, j'ai commenc\xE9 ma pubert\xE9."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: "Euh, j'esp\xE8re bien. Je me serais inqui\xE9t\xE9e si c'\xE9tait le contraire."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "Ma pubert\xE9 alien."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: "Ah bon ? Tu fais ta pubert\xE9 alien, toi, maintenant ?"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "Faut croire\u2026 si mon p\xE8re ne s'est pas tromp\xE9. J'arrive pas
+      \xE0 croire qu'il ne m'en ait jamais parl\xE9. Je sais qu'il ne me parle pas
+      vraiment de sa vie avant de venir ici, mais quand m\xEAme\u2026 c'est peut-\xEAtre
+      le genre d'information qu'il aurait \xE9t\xE9 bien de me transmettre, non ?"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: "Et \xE7a consiste en quoi, ta \"pubert\xE9\" ? Parce que t'es pas totalement
+      alien, donc \xE7a doit avoir un impact, non ?"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "Honn\xEAtement, j'en ai aucune id\xE9e. Je suis bien comme \xE7a, moi.
+      La plupart du temps, j'oublie ce l\xE9ger d\xE9tail sur moi."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: "Oui\u2026 \"l\xE9ger d\xE9tail\"."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "Mon p\xE8re s'est tellement bien int\xE9gr\xE9 \xE0 la Terre que parfois,
+      je me demande si on m'a pas juste fait une vaste blague."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: "Moi, je me souviens bien de l'\xE9t\xE9 de nos 12 ans, et l\xE0\u2026
+      plus de doute possible."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: C'est vrai que, sur ce point, tu as raison.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(On s'est mises \xE0 ricaner une seconde avant de retrouver notre s\xE9rieux.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "J'ai peur de changer\u2026 Imagine, je me transforme en grand monstre
+      bizarre."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: "Tu seras toujours mon monstre pr\xE9f\xE9r\xE9."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: "Et t'en fais pas, je serai l\xE0, comme toujours."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (J'ai pris une grande inspiration.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "Merci. De toute fa\xE7on, je crois que je peux juste subir et voir ce
+      qu'il se passe. Mon p\xE8re m'a dit de vivre normalement et de ne pas me laisser
+      dominer par mes \xE9motions."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: "\xC7a me semble faisable."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Elle m'a tendu la main. Apr\xE8s une br\xE8ve h\xE9sitation, j'ai serr\xE9
+      la sienne.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    text: On va assurer, tu vas voir.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: Je te fais confiance.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  transition:
+    nextChapter: {fileID: 0}
+  affinityRequirements: []

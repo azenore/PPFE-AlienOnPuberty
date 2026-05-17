@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: Chapter_1
   m_EditorClassIdentifier: 
   chapterTitle: Introduction
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 0ec333ae0b4005e4287738099a075175, type: 3}
   backgroundMusic: {fileID: 0}
   nodes:
   - speaker: {fileID: 0}
-    isProtagonist: 0
     text: 
     voiceClip: {fileID: 0}
     choices: []
@@ -26,8 +25,7 @@ MonoBehaviour:
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
-    backgroundOverride: {fileID: 0}
+    backgroundOverride: {fileID: 21300000, guid: 0ec333ae0b4005e4287738099a075175, type: 3}
   transition:
     nextChapter: {fileID: 0}
-    nextPhoneChapter: {fileID: 0}
   affinityRequirements: []

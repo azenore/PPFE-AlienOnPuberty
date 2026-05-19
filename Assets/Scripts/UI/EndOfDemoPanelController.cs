@@ -11,20 +11,20 @@ namespace VN.UI
     {
         private const float FadeDuration = 0.8f;
 
-        [Header("Références")]
-        [SerializeField] private CanvasGroup canvasGroup;
+        private CanvasGroup _canvasGroup;
 
         private void Awake()
         {
-            if (canvasGroup == null)
-                canvasGroup = GetComponent<CanvasGroup>();
+            _canvasGroup = GetComponent<CanvasGroup>();
+            if (_canvasGroup == null)
+                _canvasGroup = gameObject.AddComponent<CanvasGroup>();
         }
 
         private void OnEnable()
         {
-            canvasGroup.alpha = 0f;
-            canvasGroup.interactable = false;
-            canvasGroup.blocksRaycasts = false;
+            _canvasGroup.alpha = 0f;
+            _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
             StartCoroutine(FadeIn());
         }
 
@@ -40,12 +40,12 @@ namespace VN.UI
             while (elapsed < FadeDuration)
             {
                 elapsed += Time.deltaTime;
-                canvasGroup.alpha = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / FadeDuration));
+                _canvasGroup.alpha = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / FadeDuration));
                 yield return null;
             }
-            canvasGroup.alpha = 1f;
-            canvasGroup.interactable = true;
-            canvasGroup.blocksRaycasts = true;
+            _canvasGroup.alpha = 1f;
+            _canvasGroup.interactable = true;
+            _canvasGroup.blocksRaycasts = true;
         }
     }
 }

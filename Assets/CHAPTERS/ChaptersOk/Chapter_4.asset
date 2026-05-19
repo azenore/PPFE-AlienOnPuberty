@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chapterTitle: "Pubert\xE9 alien"
   background: {fileID: 21300000, guid: 0ec333ae0b4005e4287738099a075175, type: 3}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: a345ca4e7acb88040bea7630fedfe934, type: 3}
+  conditionalBackground: {fileID: 0}
   nodes:
   - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     text: "Oula, \xE7a va ? Tu fais une de ces t\xEAtes\u2026"

@@ -50,9 +50,6 @@ namespace VN.Runtime
         /// <summary>Fired when a dialogue chapter is loaded. Allows UI to restore dialogue elements hidden during a phone chapter.</summary>
         public event Action OnDialogueChapterLoaded;
 
-        /// <summary>Fired when there are no more chapters to load (end of demo).</summary>
-        public event Action OnGameEnded;
-
         private void Awake()
         {
             engine.OnChapterFinished += HandleDialogueChapterFinished;
@@ -208,6 +205,11 @@ namespace VN.Runtime
             }
         }
 
-        private void ShowEndOfDemo() => endOfDemoPanel?.Show();
+        private void ShowEndOfDemo()
+        {
+            audioManager?.StopMusic();
+            gamePanel.SetActive(false);
+            endOfDemoPanel?.gameObject.SetActive(true);
+        }
     }
 }

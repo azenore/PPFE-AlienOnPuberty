@@ -9641,7 +9641,7 @@ PrefabInstance:
     - target: {fileID: 3576034158760393810, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
       propertyPath: startingChapter
       value: 
-      objectReference: {fileID: 11400000, guid: 3174db22f8a60ba44a153248deb858a0, type: 2}
+      objectReference: {fileID: 11400000, guid: 89a0a30543a80ae468be087a4baa1073, type: 2}
     - target: {fileID: 3576034158760393810, guid: 6f9b92a5dfd27a943808723a7deca879, type: 3}
       propertyPath: phoneChatController
       value: 

@@ -14,8 +14,11 @@ namespace VN.Data
         public string hairId;
         public string eyeId;
 
-        [Tooltip("Associe une combinaison hairId/eyeId à des sprites par émotion")]
+        [Tooltip("Associe une combinaison hairId/eyeId ï¿½ des sprites par ï¿½motion")]
         [SerializeField] private List<AppearanceEntry> appearances = new();
+
+        [Tooltip("AffinitÃ©s de dÃ©part, identiques Ã  chaque nouvelle partie. Ne jamais modifier en runtime.")]
+        [SerializeField] private List<AffinityEntry> baseAffinities = new();
 
         [SerializeField] private List<AffinityEntry> affinities = new();
 
@@ -49,6 +52,13 @@ namespace VN.Data
             foreach (var entry in affinities)
                 if (entry.character == character) return entry.value;
             return 0;
+        }
+
+        /// <summary>Returns a snapshot of all base affinity entries (new game defaults).</summary>
+        public IEnumerable<(CharacterData character, int value)> GetAllBaseAffinities()
+        {
+            foreach (var entry in baseAffinities)
+                yield return (entry.character, entry.value);
         }
 
         /// <summary>Returns a snapshot of all affinity entries for serialization.</summary>
@@ -111,7 +121,7 @@ namespace VN.Data
         {
             public string hairId;
             public string eyeId;
-            // Pas de = new() ici — évite l'appel depuis le loading thread
+            // Pas de = new() ici ï¿½ ï¿½vite l'appel depuis le loading thread
             [SerializeField] private List<EmotionSprite> emotionSprites;
 
             /// <summary>Returns the sprite for the given emotion, falls back to Neutral.</summary>

@@ -13,19 +13,100 @@ MonoBehaviour:
   m_Name: Chapter_1
   m_EditorClassIdentifier: 
   chapterTitle: Introduction
-  background: {fileID: 21300000, guid: 0ec333ae0b4005e4287738099a075175, type: 3}
+  background: {fileID: 21300000, guid: 004d8ecb4dbe202409322dd1659ffecc, type: 3}
   backgroundMusic: {fileID: 0}
   nodes:
   - speaker: {fileID: 0}
-    text: 
+    text: (Plus que 45 petites minutes et on sera enfin chez nous.)
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 0}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
-    isMonologue: 0
-    backgroundOverride: {fileID: 21300000, guid: 0ec333ae0b4005e4287738099a075175, type: 3}
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Linh, ma meilleure amie, est au volant de sa petite voiture d'occasion
+      rouge. Je suis trop heureuse d'emm\xE9nager avec elle. Je sais que cette nouvelle
+      aventure ne sera pas aussi terrifiante avec elle \xE0 mes c\xF4t\xE9s.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Quelle chance qu'on ait \xE9t\xE9 toutes les deux accept\xE9es \xE0 l'Acad\xE9mie
+      De Vinci ! On a tout donn\xE9 pour \xE7a. Je ne compte plus les heures pass\xE9es
+      ensemble \xE0 construire nos portfolios. On sera dans des classes diff\xE9rentes,
+      mais ce n'est pas grave.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Linh et moi, on se conna\xEEt depuis notre entr\xE9e en primaire, et
+      depuis, on ne se l\xE2che plus.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Oh, et moi c'est [NAME]. J'ai 20 ans depuis deux semaines, et depuis
+      toute petite je suis passionn\xE9e par la photographie. Alors quand j'ai appris
+      qu'on \xE9tait toutes les deux accept\xE9es dans la prestigieuse Acad\xE9mie
+      De Vinci, j'ai saut\xE9 partout dans la maison. On s'est trouv\xE9 un petit
+      appartement \xE0 quelques minutes en tram de l'\xE9cole.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(C'est un nouveau chapitre de ma vie qui s'ouvre, aussi tentant que terrifiant.
+      Mais c'est justement \xE7a qui me fait me sentir vivante.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(C'est tout ce qu'il y a \xE0 dire sur moi pour l'instant\u2026)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Ah non, dernier d\xE9tail \u2014 je suis mi-humaine, mi-alien.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
   transition:
-    nextChapter: {fileID: 0}
+    nextChapter: {fileID: 11400000, guid: 3174db22f8a60ba44a153248deb858a0, type: 2}
   affinityRequirements: []

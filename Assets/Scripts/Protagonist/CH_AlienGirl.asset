@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Yuki
   currentEmotion: 0
-  hairColor: {r: 0.990566, g: 0.85723734, b: 0.378471, a: 1}
+  hairColor: {r: 0.3301887, g: 0.15107691, b: 0.15107691, a: 1}
   eyeColor: {r: 0.10457456, g: 0.3295636, b: 0.8867924, a: 1}
   hairId: brun
   eyeId: bleu
@@ -29,4 +29,9 @@ MonoBehaviour:
     emotionSprites:
     - emotion: 0
       sprite: {fileID: 21300000, guid: 52d55d98abc915d4eb2809faec29a9d0, type: 3}
-  affinities: []
+  baseAffinities:
+  - character: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    value: 50
+  affinities:
+  - character: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
+    value: 50

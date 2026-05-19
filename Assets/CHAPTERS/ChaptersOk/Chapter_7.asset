@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0357ddfcb993e42a8fbc0aff04b250, type: 3}
+  m_Name: Chapter_7
+  m_EditorClassIdentifier: 
+  chapterTitle: 
+  background: {fileID: 21300000, guid: 0ec333ae0b4005e4287738099a075175, type: 3}
+  backgroundMusic: {fileID: 0}
+  nodes:
+  - speaker: {fileID: 0}
+    text: "(On a profit\xE9 des quelques jours avant la soir\xE9e pour prendre nos
+      marques : rep\xE9rer la sup\xE9rette du coin, se tromper de tram et g\xE9rer
+      plein de choses li\xE9es \xE0 notre emm\xE9nagement. En soi, rien de tr\xE8s
+      amusant.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Le samedi est arriv\xE9 vite. Mes sympt\xF4mes restent stables, quelques
+      picotements par-ci par-l\xE0, mais rien d'alarmant.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Linh m'avait convaincu de rester dormir l\xE0-bas pour avoir \xAB l'exp\xE9rience
+      compl\xE8te \xBB, comme elle dit.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Apr\xE8s avoir failli oublier les cl\xE9s de l'appart \xE0 l'int\xE9rieur,
+      nous nous sommes dirig\xE9s vers la soir\xE9e.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  transition:
+    nextChapter: {fileID: 11400000, guid: 1fd6fd5941d2079488da9aa0681f9c98, type: 2}
+  affinityRequirements: []

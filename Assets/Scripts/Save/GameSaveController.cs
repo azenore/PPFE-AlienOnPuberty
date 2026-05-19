@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using VN.Data;
@@ -54,11 +54,18 @@ namespace VN.Runtime
         private void OnPlayModeStateChanged(PlayModeStateChange state)
         {
             if (state == PlayModeStateChange.ExitingPlayMode)
+            {
                 TrySave();
+                protagonistDataAsset.ResetAffinities();
+            }
         }
 #endif
 
-        private void OnApplicationQuit() => TrySave();
+        private void OnApplicationQuit()
+        {
+            TrySave();
+            protagonistDataAsset.ResetAffinities();
+        }
 
         private void TrySave()
         {
@@ -80,7 +87,8 @@ namespace VN.Runtime
             ProtagonistData.hairId = protagonistDataAsset.hairId;
             ProtagonistData.eyeId = protagonistDataAsset.eyeId;
             ProtagonistData.ResetAffinities();
-            protagonistDataAsset.ResetAffinities();
+            foreach (var (character, value) in protagonistDataAsset.GetAllBaseAffinities())
+                ProtagonistData.SetAffinity(character, value);
         }
 
         /// <summary>Builds a SaveData snapshot from current game state and writes it to disk.</summary>

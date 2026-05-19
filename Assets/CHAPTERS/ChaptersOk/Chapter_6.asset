@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chapter_6
   m_EditorClassIdentifier: 
   chapterTitle: "La soir\xE9e"
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 0ec333ae0b4005e4287738099a075175, type: 3}
   backgroundMusic: {fileID: 0}
   nodes:
   - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
@@ -35,7 +35,7 @@ MonoBehaviour:
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
-    isMonologue: 1
+    isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
     text: "Je sais pas si c'est une bonne id\xE9e\u2026"
@@ -84,7 +84,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
-    characterOnScreenEmotion: 0
+    characterOnScreenEmotion: 3
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
-    characterOnScreenEmotion: 0
+    characterOnScreenEmotion: 1
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
@@ -174,5 +174,5 @@ MonoBehaviour:
     isMonologue: 1
     backgroundOverride: {fileID: 0}
   transition:
-    nextChapter: {fileID: 0}
+    nextChapter: {fileID: 11400000, guid: 8d0cbd27f683e024bb6eef5dcbe45671, type: 2}
   affinityRequirements: []

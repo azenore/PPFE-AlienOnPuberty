@@ -56,7 +56,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   engine: {fileID: 8267438394494280754}
-  startingChapter: {fileID: 11400000, guid: e6cb208b51b08ab4b972e02d527c82e4, type: 2}
+  phoneEngine: {fileID: 0}
+  startingChapter: {fileID: 11400000, guid: 89a0a30543a80ae468be087a4baa1073, type: 2}
+  protagonist: {fileID: 0}
+  phoneChatController: {fileID: 0}
+  gamePanel: {fileID: 0}
+  backgroundImage: {fileID: 0}
 --- !u!114 &2040887972411324280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,14 +134,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   protagonist: {fileID: 11400000, guid: b7f2025a9a5387545870a7274bcf3897, type: 2}
+  gameSaveController: {fileID: 0}
   chapterManager: {fileID: 3576034158760393810}
   mainMenuController: {fileID: 8660252163672932823}
   nameInputField: {fileID: 0}
   hairColorOptions: []
-  hairSwatchContainer: {fileID: 0}
-  colorSwatchPrefab: {fileID: 0}
+  hairColorSelector: {fileID: 0}
   eyeColorOptions: []
-  eyeSwatchContainer: {fileID: 0}
+  eyeColorSelector: {fileID: 0}
+  protagonistPreviewImage: {fileID: 0}
 --- !u!114 &3519692562806001224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,10 +158,12 @@ MonoBehaviour:
   protagonistDataAsset: {fileID: 11400000, guid: b7f2025a9a5387545870a7274bcf3897, type: 2}
   chapterManager: {fileID: 3576034158760393810}
   dialogueEngine: {fileID: 8267438394494280754}
+  phoneEngine: {fileID: 0}
   allChapters:
   - {fileID: 11400000, guid: e6cb208b51b08ab4b972e02d527c82e4, type: 2}
   - {fileID: 11400000, guid: 8bae5f13b1eefa541951c7c05d212cc0, type: 2}
   - {fileID: 11400000, guid: 000e365fd3d98f74c85718b9d04ea387, type: 2}
+  allPhoneChapters: []
 --- !u!114 &8660252163672932823
 MonoBehaviour:
   m_ObjectHideFlags: 0

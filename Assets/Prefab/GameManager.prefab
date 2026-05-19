@@ -59,6 +59,7 @@ MonoBehaviour:
   phoneEngine: {fileID: 0}
   startingChapter: {fileID: 11400000, guid: 89a0a30543a80ae468be087a4baa1073, type: 2}
   protagonist: {fileID: 0}
+  audioManager: {fileID: 4833454090629990254}
   phoneChatController: {fileID: 0}
   gamePanel: {fileID: 0}
   backgroundImage: {fileID: 0}
@@ -140,7 +141,9 @@ MonoBehaviour:
   nameInputField: {fileID: 0}
   hairColorOptions: []
   hairColorSelector: {fileID: 0}
-  eyeColorOptions: []
+  eyeColorOptions:
+  - {fileID: 11400000, guid: f82ea153470ead54182f4d5cfe3e77a8, type: 2}
+  - {fileID: 11400000, guid: 6a931d49b0f3f3844ab33ca55e3e911f, type: 2}
   eyeColorSelector: {fileID: 0}
   protagonistPreviewImage: {fileID: 0}
 --- !u!114 &3519692562806001224
@@ -160,10 +163,24 @@ MonoBehaviour:
   dialogueEngine: {fileID: 8267438394494280754}
   phoneEngine: {fileID: 0}
   allChapters:
-  - {fileID: 11400000, guid: e6cb208b51b08ab4b972e02d527c82e4, type: 2}
-  - {fileID: 11400000, guid: 8bae5f13b1eefa541951c7c05d212cc0, type: 2}
-  - {fileID: 11400000, guid: 000e365fd3d98f74c85718b9d04ea387, type: 2}
-  allPhoneChapters: []
+  - {fileID: 11400000, guid: 89a0a30543a80ae468be087a4baa1073, type: 2}
+  - {fileID: 11400000, guid: 3174db22f8a60ba44a153248deb858a0, type: 2}
+  - {fileID: 11400000, guid: 0624c53d73ddad446963088037a7a2bb, type: 2}
+  - {fileID: 11400000, guid: ba016a29c8b6f334bb7446b211b666e2, type: 2}
+  - {fileID: 11400000, guid: 8d0cbd27f683e024bb6eef5dcbe45671, type: 2}
+  - {fileID: 11400000, guid: 1fd6fd5941d2079488da9aa0681f9c98, type: 2}
+  - {fileID: 11400000, guid: f654f491adbf7544d87c31b23a612c2d, type: 2}
+  - {fileID: 11400000, guid: 13251ffcf2248d843b6009654c6401a6, type: 2}
+  - {fileID: 11400000, guid: 9c78902d557c2314783fa23972c5055d, type: 2}
+  - {fileID: 11400000, guid: bfecfa079ba6c8d4787f8ad40cb2c7a1, type: 2}
+  - {fileID: 11400000, guid: 84901008d67f75440860f9848ef1c08d, type: 2}
+  - {fileID: 11400000, guid: 4cc6c37be16bb214dbbe5069d0272f95, type: 2}
+  - {fileID: 11400000, guid: fee6b3a337db27b409e075b2c8cbbc39, type: 2}
+  - {fileID: 11400000, guid: aa1aff25d3086174e9ea33b17b0e84ea, type: 2}
+  - {fileID: 11400000, guid: aafd6bf7d09ae2c48a4e8f68e82039f4, type: 2}
+  allPhoneChapters:
+  - {fileID: 11400000, guid: 3cc50fe353ebb9c499912ded0a3c0c2f, type: 2}
+  - {fileID: 11400000, guid: b77af024bc27084468d7353b5d59b07b, type: 2}
 --- !u!114 &8660252163672932823
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chapterTitle: 
   background: {fileID: 21300000, guid: 3daba329fa4417f4d9ae5aaaffbdd89f, type: 3}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: 07d774bd39f45164e894554acc28c090, type: 3}
   nodes:
   - speaker: {fileID: 0}
     text: "(Il n'y avait aucun doute, nous \xE9tions arriv\xE9es \xE0 bon port. Des
@@ -44,8 +44,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 0}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
     - label: Visiter le jardin
       affinityTarget: {fileID: 0}
       affinityDelta: 0
-      nextChapter: {fileID: 0}
+      nextChapter: {fileID: 11400000, guid: f654f491adbf7544d87c31b23a612c2d, type: 2}
     characterOnScreen: {fileID: 0}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0

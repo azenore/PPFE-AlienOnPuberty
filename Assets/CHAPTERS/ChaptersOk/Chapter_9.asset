@@ -1,0 +1,223 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0357ddfcb993e42a8fbc0aff04b250, type: 3}
+  m_Name: Chapter_9
+  m_EditorClassIdentifier: 
+  chapterTitle: 
+  background: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: 07d774bd39f45164e894554acc28c090, type: 3}
+  conditionalBackground: {fileID: 11400000, guid: 6dce953a7cea46a4d89363d74a4455f8, type: 2}
+  nodes:
+  - speaker: {fileID: 0}
+    text: (Linh me fait un petit signe de la main avant de rentrer dans la maison.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Je lui r\xE9ponds avec un sourire un peu h\xE9sitant.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 6
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(La musique r\xE9sonne d\xE9j\xE0 depuis l'int\xE9rieur.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(M\xEAme d'ici, je peux entendre les rires et les conversations.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(\u2026Il y a vraiment beaucoup de monde.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Bon.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Il suffit juste d'entrer.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "\u2026"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Apr\xE8s une minute.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Ou deux.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Je m'\xE9loigne un peu de l'entr\xE9e et vais m'asseoir contre un arbre
+      au bord du jardin.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(L'air frais me fait imm\xE9diatement du bien.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 1
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (C'est plus calme ici.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 1
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(On entend \xE0 peine la musique.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 1
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Juste cinq minutes pour me d\xE9tendre avant d'entrer.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Je ferme les yeux un instant.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Ma respiration ralentit peu \xE0 peu.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(\u2026Je suis plus fatigu\xE9e que je pensais.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Le bruit des feuilles finit doucement par couvrir celui de la soir\xE9e.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Et sans vraiment m'en rendre compte\u2026 je m'endors contre le tronc.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  transition:
+    nextChapter: {fileID: 0}
+  affinityRequirements: []

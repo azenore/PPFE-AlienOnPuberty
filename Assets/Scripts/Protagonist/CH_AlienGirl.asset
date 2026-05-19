@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Yuki
   currentEmotion: 0
-  hairColor: {r: 0.3301887, g: 0.15107691, b: 0.15107691, a: 1}
+  hairColor: {r: 0.990566, g: 0.85723734, b: 0.378471, a: 1}
   eyeColor: {r: 0.10457456, g: 0.3295636, b: 0.8867924, a: 1}
   hairId: brun
   eyeId: bleu
@@ -23,15 +23,55 @@ MonoBehaviour:
     eyeId: bleu
     emotionSprites:
     - emotion: 0
-      sprite: {fileID: 21300000, guid: a3442f07e1b07f24592a2aa7f1bf2c17, type: 3}
+      sprite: {fileID: 21300000, guid: fcceabd97b0ee204bb2bfecd0ec7d045, type: 3}
+    - emotion: 1
+      sprite: {fileID: 21300000, guid: 0ea3e7924494bbe48acbdf2b09eaf023, type: 3}
+    - emotion: 2
+      sprite: {fileID: 21300000, guid: 01447adb100f5f749ac11c2d8614dd50, type: 3}
+    - emotion: 3
+      sprite: {fileID: 21300000, guid: 99aafd0dee9eaba44b60ac5bd491b30a, type: 3}
+    - emotion: 4
+      sprite: {fileID: 21300000, guid: 620c937a75a18064ab2ac1de96192a00, type: 3}
   - hairId: brun
     eyeId: bleu
     emotionSprites:
     - emotion: 0
-      sprite: {fileID: 21300000, guid: 52d55d98abc915d4eb2809faec29a9d0, type: 3}
+      sprite: {fileID: 21300000, guid: bdd361292075b08439176f92d9997c55, type: 3}
+    - emotion: 1
+      sprite: {fileID: 21300000, guid: 9a9bed18f8e7e1a46b71e88fac31a451, type: 3}
+    - emotion: 2
+      sprite: {fileID: 21300000, guid: d967ef5181bf6e849a4c2a04f29f178b, type: 3}
+    - emotion: 3
+      sprite: {fileID: 21300000, guid: d1443015eb135174a87cb7d29a1a0604, type: 3}
+    - emotion: 4
+      sprite: {fileID: 21300000, guid: baf2f13588cd84448a268aa82cf55a1f, type: 3}
+  - hairId: brun
+    eyeId: marron
+    emotionSprites:
+    - emotion: 0
+      sprite: {fileID: 21300000, guid: 987664b58d2395a4c984237ed35b333f, type: 3}
+    - emotion: 1
+      sprite: {fileID: 21300000, guid: 9a9bed18f8e7e1a46b71e88fac31a451, type: 3}
+    - emotion: 2
+      sprite: {fileID: 21300000, guid: cd7ea67543df2b945abdf0c5dbd44452, type: 3}
+    - emotion: 3
+      sprite: {fileID: 21300000, guid: 32fcbc0785beee44687c66fed9fe0a06, type: 3}
+    - emotion: 4
+      sprite: {fileID: 21300000, guid: 6f85f3e4afed2cd4ebdd334deb26c3ad, type: 3}
+  - hairId: blond
+    eyeId: marron
+    emotionSprites:
+    - emotion: 0
+      sprite: {fileID: 21300000, guid: d6eaaa6dfb148d54ca679441c22b36fb, type: 3}
+    - emotion: 1
+      sprite: {fileID: 21300000, guid: 23216e369bc5bf04fb01388befa67de0, type: 3}
+    - emotion: 2
+      sprite: {fileID: 21300000, guid: a23608a4ff67fc844904d68b89c29826, type: 3}
+    - emotion: 3
+      sprite: {fileID: 21300000, guid: 8190956a97b3edb488286478b9717d60, type: 3}
+    - emotion: 4
+      sprite: {fileID: 21300000, guid: 8831c2ea291f9414799f9d6023e4fd9c, type: 3}
   baseAffinities:
   - character: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     value: 50
-  affinities:
-  - character: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
-    value: 50
+  affinities: []

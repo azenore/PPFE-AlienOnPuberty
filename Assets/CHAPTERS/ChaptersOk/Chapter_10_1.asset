@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chapterTitle: 
   background: {fileID: 21300000, guid: 7c1e09c22bebdfa4184f0c59555f383d, type: 3}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: 07d774bd39f45164e894554acc28c090, type: 3}
   nodes:
   - speaker: {fileID: 0}
     text: "(J'ai incit\xE9 Linh \xE0 venir avec moi \xE0 l'int\xE9rieur, et elle

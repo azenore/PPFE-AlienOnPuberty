@@ -15,15 +15,22 @@ namespace VN.Runtime
         [SerializeField] private DialogueChapter startingChapter;
         [SerializeField] private ProtagonistData protagonist;
 
+        [Header("Audio")]
+        [SerializeField] private AudioManager audioManager;
+
         [Header("UI")]
         [SerializeField] private VN.UI.PhoneChatController phoneChatController;
         [SerializeField] private GameObject gamePanel;
         [SerializeField] private Image backgroundImage;
+        [SerializeField] private VN.UI.EndOfDemoPanelController endOfDemoPanel;
 
         private DialogueChapter _currentChapter;
         private PhoneChapter _currentPhoneChapter;
         private BaseChapter _pendingChapterAfterPhone;
         private bool _inPhoneChapter;
+
+        /// <summary>Last background sprite applied (static or conditional). Persists across chapters until overridden.</summary>
+        private Sprite _lastAppliedBackground;
 
         /// <summary>Asset name of the active dialogue chapter. Used when building a save snapshot.</summary>
         public string CurrentChapterName => _currentChapter != null ? _currentChapter.name : string.Empty;
@@ -42,6 +49,9 @@ namespace VN.Runtime
 
         /// <summary>Fired when a dialogue chapter is loaded. Allows UI to restore dialogue elements hidden during a phone chapter.</summary>
         public event Action OnDialogueChapterLoaded;
+
+        /// <summary>Fired when there are no more chapters to load (end of demo).</summary>
+        public event Action OnGameEnded;
 
         private void Awake()
         {
@@ -63,12 +73,14 @@ namespace VN.Runtime
         /// <summary>Loads a dialogue chapter from its first node.</summary>
         public void LoadChapter(DialogueChapter chapter)
         {
-            if (chapter == null) { Debug.Log("[ChapterManager] Histoire terminée."); return; }
+            if (chapter == null) { ShowEndOfDemo(); return; }
             _inPhoneChapter = false;
             _currentChapter = chapter;
             phoneChatController.CloseChat();
             gamePanel.SetActive(true);
             OnDialogueChapterLoaded?.Invoke();
+            audioManager?.PlayMusic(chapter.backgroundMusic);
+            ApplyBackground(chapter);
             engine.LoadChapter(chapter);
         }
 
@@ -81,6 +93,8 @@ namespace VN.Runtime
             phoneChatController.CloseChat();
             gamePanel.SetActive(true);
             OnDialogueChapterLoaded?.Invoke();
+            audioManager?.PlayMusic(chapter.backgroundMusic);
+            ApplyBackground(chapter);
             engine.LoadChapterAtLine(chapter, lineIndex);
         }
 
@@ -140,7 +154,10 @@ namespace VN.Runtime
             DialogueChapter unlocked = _currentChapter.GetUnlockedChapter(protagonist);
             if (unlocked != null) { LoadChapter(unlocked); return; }
 
-            LoadNextChapter(_currentChapter.transition.nextChapter);
+            BaseChapter next = _currentChapter.transition?.nextChapter;
+            if (next != null) { LoadNextChapter(next); return; }
+
+            ShowEndOfDemo();
         }
 
         private void HandlePhoneChapterFinished(BaseChapter next)
@@ -153,8 +170,32 @@ namespace VN.Runtime
 
         private void HandleBackgroundChanged(Sprite sprite)
         {
-            if (backgroundImage != null)
-                backgroundImage.sprite = sprite;
+            if (backgroundImage == null) return;
+            backgroundImage.sprite = sprite;
+            _lastAppliedBackground = sprite;
+        }
+
+        /// <summary>
+        /// Resolves and applies the background for a chapter.
+        /// Priority: ConditionalBackground > chapter.background > last applied background (persistence).
+        /// </summary>
+        private void ApplyBackground(DialogueChapter chapter)
+        {
+            if (chapter.conditionalBackground != null)
+            {
+                Sprite resolved = chapter.conditionalBackground.Evaluate(protagonist);
+                if (resolved != null) { HandleBackgroundChanged(resolved); return; }
+            }
+
+            if (chapter.background != null)
+            {
+                HandleBackgroundChanged(chapter.background);
+                return;
+            }
+
+            // No background defined for this chapter: keep the last applied one.
+            if (_lastAppliedBackground != null && backgroundImage != null)
+                backgroundImage.sprite = _lastAppliedBackground;
         }
 
         private void LoadNextChapter(BaseChapter next)
@@ -163,8 +204,10 @@ namespace VN.Runtime
             {
                 case PhoneChapter phone: LoadPhoneChapter(phone); break;
                 case DialogueChapter dial: LoadChapter(dial); break;
-                default: Debug.Log("[ChapterManager] Histoire terminée."); break;
+                default: ShowEndOfDemo(); break;
             }
         }
+
+        private void ShowEndOfDemo() => endOfDemoPanel?.Show();
     }
 }

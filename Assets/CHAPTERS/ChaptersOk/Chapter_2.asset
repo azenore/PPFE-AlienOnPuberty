@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chapterTitle: "D\xE9m\xE9nagement"
   background: {fileID: 21300000, guid: 0ec333ae0b4005e4287738099a075175, type: 3}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: a345ca4e7acb88040bea7630fedfe934, type: 3}
   nodes:
   - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     text: Et c'est fini ! Officiellement chez nous.
@@ -32,8 +32,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 0}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 1
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
@@ -52,8 +52,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 0}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 1
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
@@ -81,7 +81,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
-    characterOnScreenEmotion: 1
+    characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
@@ -102,8 +102,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 0}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 1
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
@@ -123,8 +123,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 0}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   transition:

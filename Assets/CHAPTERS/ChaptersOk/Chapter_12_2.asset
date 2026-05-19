@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0357ddfcb993e42a8fbc0aff04b250, type: 3}
+  m_Name: Chapter_12_2
+  m_EditorClassIdentifier: 
+  chapterTitle: 
+  background: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: 07d774bd39f45164e894554acc28c090, type: 3}
+  nodes:
+  - speaker: {fileID: 0}
+    text: "Je vais te laisser tranquille, du coup\u2026"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 6
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "Oh ? Tu abandonnes d\xE9j\xE0 ta tentative d'approche ?"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "C'\xE9tait pas une tentative d'approche !"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 3
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Mes oreilles recommencent brusquement \xE0 me d\xE9manger.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Ok. Il faut vraiment que je parte.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "Excuse-moi une seconde\u2014"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 4
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Je tourne rapidement les talons et traverse la foule.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(La musique me para\xEEt soudain beaucoup trop forte.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Respire. Calme-toi.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  transition:
+    nextChapter: {fileID: 11400000, guid: aa1aff25d3086174e9ea33b17b0e84ea, type: 2}
+  affinityRequirements: []

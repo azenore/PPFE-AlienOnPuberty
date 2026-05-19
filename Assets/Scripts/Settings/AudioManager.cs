@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using VN.Settings;
 
 namespace VN.Runtime
@@ -18,7 +19,24 @@ namespace VN.Runtime
 
         private void Start()
         {
+            musicSource.loop = true;
             ApplySettings(SettingsSystem.Load());
+        }
+
+        private void OnEnable()
+        {
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneUnloaded -= OnSceneUnloaded;
+        }
+
+        /// <summary>Stops music when the current scene is unloaded.</summary>
+        private void OnSceneUnloaded(Scene scene)
+        {
+            StopMusic();
         }
 
         /// <summary>Applies a full SettingsData snapshot to the mixer.</summary>
@@ -47,12 +65,20 @@ namespace VN.Runtime
             sfxSource.PlayOneShot(clip);
         }
 
-        /// <summary>Swaps the music track with a crossfade-ready replacement.</summary>
+        /// <summary>Swaps the music track and loops it. Stops music if clip is null. No-op if the clip is already playing.</summary>
         public void PlayMusic(AudioClip clip)
         {
-            if (clip == null || musicSource.clip == clip) return;
+            if (clip == null) { StopMusic(); return; }
+            if (musicSource.clip == clip) return;
             musicSource.clip = clip;
             musicSource.Play();
+        }
+
+        /// <summary>Stops the current music track and clears the clip.</summary>
+        public void StopMusic()
+        {
+            musicSource.Stop();
+            musicSource.clip = null;
         }
 
         private static float LinearToDb(float volume)

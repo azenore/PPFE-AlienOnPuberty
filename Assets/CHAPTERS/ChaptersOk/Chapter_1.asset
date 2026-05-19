@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chapterTitle: Introduction
   background: {fileID: 21300000, guid: 004d8ecb4dbe202409322dd1659ffecc, type: 3}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: 6317dd851ea9ae743844d94b56eef859, type: 3}
   nodes:
   - speaker: {fileID: 0}
     text: (Plus que 45 petites minutes et on sera enfin chez nous.)

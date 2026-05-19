@@ -1,0 +1,395 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0357ddfcb993e42a8fbc0aff04b250, type: 3}
+  m_Name: Chapter_12_1
+  m_EditorClassIdentifier: 
+  chapterTitle: 
+  background: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: 07d774bd39f45164e894554acc28c090, type: 3}
+  nodes:
+  - speaker: {fileID: 0}
+    text: "Non, je te promets que ce n'\xE9tait pas volontaire. On m'a pouss\xE9e
+      et je t'ai percut\xE9e."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "Donc ce n'\xE9tait pas une tentative d'approche extr\xEAmement sophistiqu\xE9e
+      ?"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: Pas du tout !
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "Mince, moi qui \xE9tais impressionn\xE9e."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Elle me lance un sourire amus\xE9.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 5
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Je crois qu'elle adore mettre les gens mal \xE0 l'aise.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 5
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Et le pire, c'est que \xE7a marche.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 6
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "Tu arrives \xE0 la rentr\xE9e ?"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: Oui.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "Courage. Les premi\xE8res semaines sont un peu chaotiques ici."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "Je m'en doute\u2026"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "Au moins tu as surv\xE9cu \xE0 la soir\xE9e d'int\xE9gration. C'est d\xE9j\xE0
+      une victoire."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "La soir\xE9e vient \xE0 peine de commencer."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: Exactement. Il est encore temps de fuir.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Je laisse \xE9chapper un petit rire.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 1
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Elle a une mani\xE8re de parler qui met facilement \xE0 l'aise.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 1
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "Tu vas dans quelle fili\xE8re ?"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: Photo.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "S\xE9rieusement ?"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 4
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "Oui\u2026 ?"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 4
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: Quel hasard, je suis aussi en photo.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: Ah.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: On dirait que le destin voulait qu'on se rencontre.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Je comprends qu'elle me taquine mais je peux pas m'emp\xEAcher de rougir.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 5
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Et malheureusement, mes oreilles d\xE9cident que c'est le pire moment
+      possible pour recommencer \xE0 picoter.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 5
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: Oh, tu rougis vraiment facilement.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: C'est la chaleur.
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 5
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "Bien s\xFBr."
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (La sensation s'intensifie brusquement.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Oh non.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Pas maintenant.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "Euh\u2026 les toilettes sont o\xF9 ?"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 4
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "Au fond du couloir \xE0 droite, pourquoi\u2014 ?"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 4
+    overrideProtagonistEmotion: 0
+    protagonistEmotion: 0
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: Merci !
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    characterOnScreenEmotion: 4
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 0
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Je pars presque en courant avant qu'elle ait le temps de finir sa phrase.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Merde merde merde.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(J'ai l'impression que mes oreilles br\xFBlent.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  transition:
+    nextChapter: {fileID: 11400000, guid: aa1aff25d3086174e9ea33b17b0e84ea, type: 2}
+  affinityRequirements: []

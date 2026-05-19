@@ -42,8 +42,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
@@ -62,8 +62,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
@@ -85,8 +85,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 3
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
@@ -107,7 +107,7 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
+    overrideProtagonistEmotion: 1
     protagonistEmotion: 0
     isMonologue: 0
     backgroundOverride: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
+    overrideProtagonistEmotion: 1
     protagonistEmotion: 0
     isMonologue: 0
     backgroundOverride: {fileID: 0}
@@ -149,8 +149,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 1
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
@@ -170,8 +170,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
@@ -212,8 +212,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 1
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
@@ -253,8 +253,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 1
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   transition:

@@ -40,9 +40,6 @@ namespace VN.Runtime
             _currentIndex = Mathf.Clamp(startIndex, 0, Mathf.Max(0, _nodes.Count - 1));
             _waitingForChoice = false;
 
-            if (chapter.background != null)
-                OnBackgroundChanged?.Invoke(chapter.background);
-
             DisplayNodeAt(_currentIndex);
         }
 
@@ -83,19 +80,17 @@ namespace VN.Runtime
             if (node.backgroundOverride != null)
                 OnBackgroundChanged?.Invoke(node.backgroundOverride);
 
+            // Met à jour le personnage courant même pendant un monologue,
+            // pour qu'il soit prêt à l'affichage dès la fin du monologue.
+            if (node.characterOnScreen != null)
+                CurrentCharacter = node.characterOnScreen;
+
             SetMonologue(node.isMonologue);
 
             if (!node.isMonologue)
             {
-                if (node.characterOnScreen != null)
-                {
-                    CurrentCharacter = node.characterOnScreen;
-                    OnCharacterOnScreenChanged?.Invoke(node.characterOnScreen, node.characterOnScreenEmotion);
-                }
-                else if (CurrentCharacter != null)
-                {
-                    OnCharacterOnScreenChanged?.Invoke(CurrentCharacter, EmotionType.Neutral);
-                }
+                if (CurrentCharacter != null)
+                    OnCharacterOnScreenChanged?.Invoke(CurrentCharacter, node.characterOnScreen != null ? node.characterOnScreenEmotion : EmotionType.Neutral);
             }
 
             if (node.overrideProtagonistEmotion)

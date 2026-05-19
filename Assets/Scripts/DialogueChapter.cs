@@ -11,11 +11,14 @@ namespace VN.Data
         public Sprite background;
         public AudioClip backgroundMusic;
 
+        [Tooltip("Si renseignÃ©, remplace 'background' par le sprite correspondant aux attributs du protagoniste.")]
+        public ConditionalBackground conditionalBackground;
+
         public List<DialogueNode> nodes = new();
 
         public ChapterTransition transition;
 
-        [Tooltip("Si une condition est remplie, son chapitre est chargé à la place de la transition par défaut.")]
+        [Tooltip("Si une condition est remplie, son chapitre est chargï¿½ ï¿½ la place de la transition par dï¿½faut.")]
         public List<AffinityRequirement> affinityRequirements = new();
 
         /// <summary>Returns the unlocked chapter if any affinity requirement is met, null otherwise.</summary>

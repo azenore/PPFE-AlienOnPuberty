@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chapterTitle: 
   background: {fileID: 21300000, guid: 0ec333ae0b4005e4287738099a075175, type: 3}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: a345ca4e7acb88040bea7630fedfe934, type: 3}
+  conditionalBackground: {fileID: 0}
   nodes:
   - speaker: {fileID: 0}
     text: "(On a profit\xE9 des quelques jours avant la soir\xE9e pour prendre nos

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chapterTitle: 
   background: {fileID: 0}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: 07d774bd39f45164e894554acc28c090, type: 3}
   nodes:
   - speaker: {fileID: 0}
     text: "(Linh me fait un petit signe de la main avant de se diriger vers la table
@@ -25,7 +25,7 @@ MonoBehaviour:
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
-    isMonologue: 0
+    isMonologue: 1
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
     text: "(La musique est sympa mais assez forte \u2014 de quoi promettre une bonne
@@ -36,7 +36,7 @@ MonoBehaviour:
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
-    isMonologue: 0
+    isMonologue: 1
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
     text: "(Une jeune fille blonde me bouscule sans faire attention. Par r\xE9flexe,
@@ -48,7 +48,7 @@ MonoBehaviour:
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
-    isMonologue: 0
+    isMonologue: 1
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
     text: "Oh, je suis d\xE9sol\xE9e, on m'a bouscul\xE9e."
@@ -56,8 +56,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 0}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
@@ -66,7 +66,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
+    characterOnScreenEmotion: 4
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
+    characterOnScreenEmotion: 4
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
@@ -87,8 +87,8 @@ MonoBehaviour:
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
     characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
+    characterOnScreenEmotion: 1
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
+    characterOnScreenEmotion: 1
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
@@ -117,8 +117,8 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
     protagonistEmotion: 0
     isMonologue: 0
     backgroundOverride: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
+    characterOnScreenEmotion: 1
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
@@ -138,9 +138,9 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
@@ -148,9 +148,9 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 5
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
@@ -158,9 +158,9 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
@@ -168,9 +168,9 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 6
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
@@ -178,7 +178,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
+    characterOnScreenEmotion: 1
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
+    characterOnScreenEmotion: 1
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
@@ -199,9 +199,9 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
-    overrideProtagonistEmotion: 0
-    protagonistEmotion: 0
+    characterOnScreenEmotion: 1
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 5
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
@@ -209,15 +209,15 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices:
     - label: S'expliquer
-      affinityTarget: {fileID: 0}
-      affinityDelta: 0
-      nextChapter: {fileID: 0}
+      affinityTarget: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+      affinityDelta: 10
+      nextChapter: {fileID: 11400000, guid: 4cc6c37be16bb214dbbe5069d0272f95, type: 2}
     - label: Partir
       affinityTarget: {fileID: 0}
       affinityDelta: 0
-      nextChapter: {fileID: 0}
+      nextChapter: {fileID: 11400000, guid: fee6b3a337db27b409e075b2c8cbbc39, type: 2}
     characterOnScreen: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
-    characterOnScreenEmotion: 0
+    characterOnScreenEmotion: 1
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0

@@ -1,7 +1,7 @@
 {
     "currentPhoneChoiceMessageIndex": -1,
     "currentPhoneChoiceIndex": -1,
-    "protagonistName": "Yuki",
+    "protagonistName": "Mako",
     "hairColorR": 0.33018869161605837,
     "hairColorG": 0.15107691287994386,
     "hairColorB": 0.15107691287994386,
@@ -10,9 +10,9 @@
     "eyeColorB": 0.8867924213409424,
     "hairId": "brun",
     "eyeId": "bleu",
-    "currentChapterName": "Chapter_11",
-    "currentLineIndex": 18,
-    "lastCharacterOnScreenName": "CH_Romy",
+    "currentChapterName": "Chapter_9",
+    "currentLineIndex": 19,
+    "lastCharacterOnScreenName": "CH_Linh",
     "currentPhoneChapterName": "",
     "currentPhoneMessageIndex": 0,
     "affinities": []

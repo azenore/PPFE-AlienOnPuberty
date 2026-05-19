@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0357ddfcb993e42a8fbc0aff04b250, type: 3}
+  m_Name: Chapter_13
+  m_EditorClassIdentifier: 
+  chapterTitle: 
+  background: {fileID: 21300000, guid: 650b095b9eefe6149841cbf34f6293d5, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 07d774bd39f45164e894554acc28c090, type: 3}
+  conditionalBackground: {fileID: 11400000, guid: 5c569312a0ca2dd44bd4e699ec38019f, type: 2}
+  nodes:
+  - speaker: {fileID: 0}
+    text: "(Je me pr\xE9cipite dans les toilettes et verrouille la porte derri\xE8re
+      moi.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Puis je rel\xE8ve imm\xE9diatement mes cheveux devant le miroir.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(Le haut de mes oreilles s'est l\xE9g\xE8rement allong\xE9.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (Elles sont plus fines. Plus pointues.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: (On dirait presque des oreilles d'elfe.)
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 4
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: Qu'est-ce que c'est que ce bordel ?
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 3
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  - speaker: {fileID: 0}
+    text: "(L\xE0 c'est s\xFBr je suis dans le p\xE9trin.)"
+    voiceClip: {fileID: 0}
+    choices: []
+    characterOnScreen: {fileID: 0}
+    characterOnScreenEmotion: 0
+    overrideProtagonistEmotion: 1
+    protagonistEmotion: 2
+    isMonologue: 1
+    backgroundOverride: {fileID: 0}
+  transition:
+    nextChapter: {fileID: 0}
+  affinityRequirements: []

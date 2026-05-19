@@ -21,7 +21,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
-    characterOnScreenEmotion: 0
+    characterOnScreenEmotion: 4
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
@@ -30,17 +30,17 @@ MonoBehaviour:
     text: (Je crois que je n'ai pas su cacher ma surprise.)
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
-    isMonologue: 1
+    isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
     text: "Je\u2026 Apparemment, j'ai commenc\xE9 ma pubert\xE9."
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
     text: "Ma pubert\xE9 alien."
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
       le genre d'information qu'il aurait \xE9t\xE9 bien de me transmettre, non ?"
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
       La plupart du temps, j'oublie ce l\xE9ger d\xE9tail sur moi."
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
     voiceClip: {fileID: 0}
     choices: []
     characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
-    characterOnScreenEmotion: 0
+    characterOnScreenEmotion: 1
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
       je me demande si on m'a pas juste fait une vaste blague."
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
     text: C'est vrai que, sur ce point, tu as raison.
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
@@ -157,18 +157,18 @@ MonoBehaviour:
     text: "(On s'est mises \xE0 ricaner une seconde avant de retrouver notre s\xE9rieux.)"
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
-    isMonologue: 1
+    isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
     text: "J'ai peur de changer\u2026 Imagine, je me transforme en grand monstre
       bizarre."
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
@@ -198,11 +198,11 @@ MonoBehaviour:
     text: (J'ai pris une grande inspiration.)
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
-    isMonologue: 1
+    isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 0}
     text: "Merci. De toute fa\xE7on, je crois que je peux juste subir et voir ce
@@ -210,7 +210,7 @@ MonoBehaviour:
       dominer par mes \xE9motions."
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
@@ -231,11 +231,11 @@ MonoBehaviour:
       la sienne.)"
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
-    isMonologue: 1
+    isMonologue: 0
     backgroundOverride: {fileID: 0}
   - speaker: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     text: On va assurer, tu vas voir.
@@ -251,12 +251,12 @@ MonoBehaviour:
     text: Je te fais confiance.
     voiceClip: {fileID: 0}
     choices: []
-    characterOnScreen: {fileID: 0}
+    characterOnScreen: {fileID: 11400000, guid: 69e150ffe7048754eb5d7c077c74dc8d, type: 2}
     characterOnScreenEmotion: 0
     overrideProtagonistEmotion: 0
     protagonistEmotion: 0
     isMonologue: 0
     backgroundOverride: {fileID: 0}
   transition:
-    nextChapter: {fileID: 0}
+    nextChapter: {fileID: 11400000, guid: b77af024bc27084468d7353b5d59b07b, type: 2}
   affinityRequirements: []

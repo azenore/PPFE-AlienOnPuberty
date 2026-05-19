@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b84f2b392d3fe4baa1a996e346da38, type: 3}
+  m_Name: Chapter_5_P
+  m_EditorClassIdentifier: 
+  groupName: BDE Academie de Vinci
+  participants: []
+  messages:
+  - sender: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "Bonjour \xE0 toutes et \xE0 tous, aux petits nouveaux comme aux anciens
+      ! Pour bien commencer l\u2019ann\xE9e, nous vous proposons notre traditionnelle
+      soir\xE9e d\u2019int\xE9gration.\n\nElle aura lieu ce samedi \xE0 partir de
+      20 h, \xE0 la r\xE9sidence BeauSoleil. Comme chaque ann\xE9e, vous aurez la
+      possibilit\xE9 de rester sur place et de dormir dans des tentes install\xE9es
+      sur le terrain de la propri\xE9t\xE9.\n\nJe vous rappelle que la caution est
+      \xE9lev\xE9e et ce n\u2019est pas une fa\xE7on de parler donc tenez-vous \xE0
+      carreau. \U0001F604"
+    choices: []
+  - sender: {fileID: 11400000, guid: 06eef8b172ed45048a729343819b7013, type: 2}
+    text: "Les inscriptions se font via le lien ci-dessous, et ce uniquement jusqu\u2019\xE0
+      vendredi 8 h, donc ne tra\xEEnez pas !\n\nEt s\u2019il y a des questions, adressez-vous
+      \xE0 Madame la Pr\xE9sidente du BDE. Pas \xE0 moi ! Merci"
+    choices: []
+  - sender: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "Merci encore pour ton implication, Eliott\u2026 \U0001F644"
+    choices: []
+  - sender: {fileID: 11400000, guid: 6686945e7a2fd09409967e9a736712f5, type: 2}
+    text: "Mais oui, S\u2019il y a des questions, vous pouvez les poser sur ce groupe.
+      Merci \xE9galement de ne pas la polluer d'autres discussions."
+    choices: []
+  transition:
+    nextChapter: {fileID: 11400000, guid: ba016a29c8b6f334bb7446b211b666e2, type: 2}
